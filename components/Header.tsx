@@ -16,26 +16,28 @@ function ChevronDown() {
 }
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "#servicios", label: "Servicios", hasMenu: true },
-  { href: "#servicios", label: "Asesoramiento" },
+  { href: "#", label: "Home" },
+  { href: "#", label: "Servicios", hasMenu: true },
+  { href: "#", label: "Asesoramiento" },
   { href: "#", label: "Nosotros" },
 ];
 
 export function Header() {
 
   const [scrolled, setScrolled] = useState(false)
-
+  const [scrolled2, setScrolled2] = useState(false)
+  console.log("scrolled2 :",scrolled2)
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => {setScrolled(window.scrollY > 80); setScrolled2(window.scrollY > 300)};
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-99 transition-colors duration-300
-    ${scrolled ? "bg-[#B0C3DA]/80" : "bg-transparent"}
+    <header className={`fixed inset-x-0 top-0 z-99 transition-[300] duration-300
+    ${scrolled2 ? "bg-[#B0C3DA]" : "bg-transparent"}
+    ${scrolled ? "opacity-0 hover:opacity-100" : ""}
     `}>
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-x-6 gap-y-4 px-6 py-8 md:px-[78px]">
         <img src="/logo_header.png" alt="zrn logo" className="w-[57px] h-[68px]" />
