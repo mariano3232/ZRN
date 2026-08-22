@@ -22,7 +22,7 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: "ZRN",
+  title: "ZRN | Comex",
   description: "Comercio exterior, logística y asesoramiento aduanero.",
   icons:"/logos/logo-1.png"
 };
