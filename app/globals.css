@@ -2,25 +2,33 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0c202b;
+  --navy: #0c202b;
+  --accent: #b93e21;
+  --service: #a7cbf6;
+  --btn: #1b4368;
+  --placeholder: #d9d9d9;
+  --muted: #8c8c8c;
+  --review-author: #1e1e1e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-navy: var(--navy);
+  --color-accent: var(--accent);
+  --color-service: var(--service);
+  --color-btn: var(--btn);
+  --color-placeholder: var(--placeholder);
+  --color-muted: var(--muted);
+  --color-review-author: var(--review-author);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-syne);
+  --font-nav: var(--font-inter-tight);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
