@@ -36,7 +36,7 @@ export function Header() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-99 transition-[300] duration-300
-    ${scrolled2 ? "bg-[#B0C3DA]" : "bg-transparent"}
+    ${scrolled2 ? "bg-[#B0C3DA]/80" : "bg-transparent"}
     ${scrolled ? "opacity-0 hover:opacity-100" : ""}
     `}>
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-x-6 gap-y-4 px-6 py-8 md:px-[78px]">

@@ -24,6 +24,7 @@ const interTight = Inter_Tight({
 export const metadata: Metadata = {
   title: "ZRN",
   description: "Comercio exterior, logística y asesoramiento aduanero.",
+  icons:"/logos/logo-1.png"
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
