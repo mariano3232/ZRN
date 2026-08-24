@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 const services = [
-  { title: "ASESORAMIENTO", bg_img:"/servicios/asesoramiento.png",  span: false },
-  { title: "COORDINACIÓN", bg_img:"/servicios/coordinacion.png",  span: false },
-  { title: "DOCUMENTACIÓN", bg_img:"/servicios/documentacion.png",  span: false },
-  { title: "GESTIÓN ANTE TERCEROS", bg_img:"/servicios/gestion.png",  span: false },
-  { title: "APERTURA COMERCIAL", bg_img:"/servicios/apertura.png",  span: true },
+  { title: "ASESORAMIENTO", bg_img:"/servicios/asesoramiento.png",  span: false, id: "asesoramiento" },
+  { title: "COORDINACIÓN", bg_img:"/servicios/coordinacion.png",  span: false, id: "coordinacion" },
+  { title: "DOCUMENTACIÓN", bg_img:"/servicios/documentacion.png",  span: false, id: "documentacion" },
+  { title: "GESTIÓN ANTE TERCEROS", bg_img:"/servicios/gestion.png",  span: false, id: "gestion-ante-terceros" },
+  { title: "APERTURA COMERCIAL", bg_img:"/servicios/apertura.png",  span: true, id: "apertura-comercial" },
 ];
 
 export function Services() {
@@ -21,17 +23,20 @@ export function Services() {
         {services.map((service) => (
           <li
             key={service.title}
-            className={`group relative h-[241px] cursor-pointer overflow-hidden bg-service ${
-              service.span ? "md:col-span-2" : ""
-            }`}
+            className={`h-[241px] ${service.span ? "md:col-span-2" : ""}`}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
-              style={{ backgroundImage: `url('${service.bg_img}')` }}
-            />
-            <p className="relative z-10 flex h-full w-full items-center justify-center text-base font-extrabold tracking-[0.03em] text-navy transition-colors duration-500 ease-out group-hover:text-white">
-              {service.title}
-            </p>
+            <Link
+              href={`/servicios#${service.id}`}
+              className="group relative block h-full overflow-hidden bg-service"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                style={{ backgroundImage: `url('${service.bg_img}')` }}
+              />
+              <p className="relative z-10 flex h-full w-full items-center justify-center text-base font-extrabold tracking-[0.03em] text-navy transition-colors duration-500 ease-out group-hover:text-white">
+                {service.title}
+              </p>
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,8 +1,11 @@
+'use client'
+
 import { Hero } from '@/components/Hero'
-import React from 'react'
+import { useEffect } from 'react'
 
 const services = [
   {
+    id: "asesoramiento",
     name: "ASESORAMIENTO",
     img: "/servicios/asesoramiento.png",
     items: [
@@ -12,6 +15,7 @@ const services = [
     ],
   },
   {
+    id: "coordinacion",
     name: "COORDINACIÓN",
     img: "/servicios/coordinacion.png",
     items: [
@@ -21,6 +25,7 @@ const services = [
     ],
   },
   {
+    id: "documentacion",
     name: "DOCUMENTACIÓN",
     img: "/servicios/documentacion.png",
     items: [
@@ -30,6 +35,7 @@ const services = [
     ],
   },
   {
+    id: "gestion-ante-terceros",
     name: "GESTIÓN ANTE TERCEROS",
     img: "/servicios/gestion.png",
     items: [
@@ -39,6 +45,7 @@ const services = [
     ],
   },
   {
+    id: "apertura-comercial",
     name: "APERTURA COMERCIAL",
     img: "/servicios/apertura.png",
     items: [
@@ -50,6 +57,17 @@ const services = [
 ]
 
 export default function page() {
+  useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (!id) return
+
+    const timeout = window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
+
+    return () => window.clearTimeout(timeout)
+  }, [])
+
   return (
     <div className='tracking-[3%] mb-20'>
       <Hero/>
@@ -58,7 +76,7 @@ export default function page() {
       </div>
       <div className='flex flex-col gap-5'>
       {services.map((service,i) => (
-        <div key={service.name} className='group flex h-[317px] justify-between border border-gray-400 mx-20 '>
+        <div id={service.id} key={service.id} className='group flex h-[317px] scroll-mt-40 justify-between border border-gray-400 mx-20 '>
           <div className='relative flex flex-col justify-center items-center gap-5 overflow-hidden bg-[#B0C3DA]/80 w-[50%]'>
             <div
               className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
