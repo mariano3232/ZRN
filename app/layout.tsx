@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Inter_Tight, Syne } from "next/font/google";
 import { Header } from "../components/Header";
 import "./globals.css";
+import { Contact } from "@/components/Contact";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="relative min-h-full bg-background text-foreground">
         <Header />
         {children}
+        <Contact/>
       </body>
     </html>
   );

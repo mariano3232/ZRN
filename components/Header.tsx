@@ -16,8 +16,8 @@ function ChevronDown() {
 }
 
 const navItems = [
-  { href: "#", label: "Home" },
-  { href: "#", label: "Servicios", hasMenu: true },
+  { href: "/", label: "Home" },
+  { href: "/servicios", label: "Servicios", hasMenu: true },
   { href: "#", label: "Asesoramiento" },
   { href: "#", label: "Nosotros" },
 ];
