@@ -33,7 +33,7 @@ export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false)
   const [scrolled2, setScrolled2] = useState(false)
-  console.log("scrolled2 :",scrolled2)
+
   useEffect(() => {
     const onScroll = () => {setScrolled(window.scrollY > 80); setScrolled2(window.scrollY > 300)};
     onScroll();
@@ -42,13 +42,19 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-99 transition-[300] duration-300
+    <header className={`fixed inset-x-0 top-0 z-99 transition-all duration-300
     ${scrolled2 ? "bg-[#B0C3DA]" : "bg-transparent"}
     ${scrolled ? "opacity-0 hover:opacity-100" : ""}
     `}>
-      <div className="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-x-6 gap-y-4 px-6 py-8 md:px-[78px]">
+      <div className={`mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-6 gap-y-4 px-6 transition-all duration-300 md:px-[78px] ${
+        scrolled ? "py-3" : "py-8"
+      }`}>
         <Link href={"/"}>
-          <img src="/logo_header.png" alt="zrn logo" className="w-[57px] h-[68px]" />
+          <img
+            src="/logo_header.png"
+            alt="zrn logo"
+            className={`transition-all duration-300 ${scrolled ? "h-10 w-auto" : "h-[68px] w-[57px]"}`}
+          />
         </Link>
         
         <nav
