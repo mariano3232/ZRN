@@ -103,7 +103,7 @@ export function Contact() {
           <address className="not-italic flex flex-col text-right text-sm font-normal tracking-[0.03em] text-white">
             <span>Calle falsa 123, Puerto</span>
             <span>Madero, CABA.</span>
-            <span className="pt-2">(11) 45954763</span>
+            <span className="pt-2">(11) 35658579</span>
           </address>
         </div>
       </div>

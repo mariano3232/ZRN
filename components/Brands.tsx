@@ -1,7 +1,14 @@
 import Marquee from "react-fast-marquee";
-import { Placeholder } from "./Placeholder";
 
-const brands = ["GUM", "Elvive", "Dove", "Rexona"];
+const brands = [
+  "/marcas/BioOrigen.png",
+  "/marcas/Global.png",
+  "/marcas/GUM.png",
+  "/marcas/Moblar.png",
+  "/marcas/Pharma.png",
+  "/marcas/SA.png",
+  "/marcas/TW.png"
+];
 
 export function Brands() {
   return (
@@ -12,8 +19,7 @@ export function Brands() {
       <Marquee speed={60} pauseOnHover className="mask-l-from-80% mask-r-from-80%">
           {brands.map((brand) => (
             <div key={brand} className="mx-5">
-              <Placeholder className="h-[143px] w-full min-w-[300px] rounded-[10px] border border-[#747373]" />
-              <span className="sr-only">{brand}</span>
+              <img src={brand} className="h-[143px] w-full min-w-[300px] rounded-[10px]" />
             </div>
           ))}
       </Marquee>
