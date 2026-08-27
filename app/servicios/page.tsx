@@ -109,7 +109,7 @@ export default function page() {
           </div>
         </div>
       </section>
-      <div className='mt-50 mr-20 mb-30 flex justify-end'>
+      <div className='mt-50 mr-20 mb-30 flex justify-center'>
         <span className='font-display font-semibold text-[36px] text-navy/85'>↓ NUESTROS SERVICIOS ↓</span>
       </div>
       <div className='flex flex-col gap-5'>
