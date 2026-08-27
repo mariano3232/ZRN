@@ -23,7 +23,7 @@ const values = [
   },
   {
     title: "(3) VALORES",
-    copy: "Claridad · Estrategia · Comunicación · Cercanía · Crecimiento",
+    copy: "Claridad para avanzar. Estrategia para proyectar. Comunicación para conectar. Cercanía para acompañar.",
     img: "/nosotros/valor.png",
   },
 ];

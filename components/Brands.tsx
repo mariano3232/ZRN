@@ -5,7 +5,7 @@ const brands = [
   "/marcas/Global.png",
   "/marcas/GUM.png",
   "/marcas/Moblar.png",
-  "/marcas/Pharma.png",
+  "/marcas/PHARMA.png",
   "/marcas/SA.png",
   "/marcas/TW.png"
 ];
