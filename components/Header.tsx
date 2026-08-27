@@ -75,7 +75,9 @@ export function Header() {
 
         <button
           type="button"
-          className={`font-nav flex items-center gap-1 text-base font-medium tracking-[0.03em] ${scrolled? "text-navy": "text-white"}`}
+          className={`font-nav flex items-center gap-1 text-base font-medium tracking-[0.03em] ${
+            scrolled || pathname === "/nosotros" ? "text-navy" : "text-white"
+          }`}
         >
           idioma
           <ChevronDown />
