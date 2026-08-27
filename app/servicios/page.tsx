@@ -110,19 +110,19 @@ export default function page() {
         </div>
       </section>
       <div className='mt-50 mr-20 mb-30 flex justify-end'>
-        <span className='font-display font-semibold text-[36px] text-navy/85'>NUESTROS SERVICIOS ↓↓</span>
+        <span className='font-display font-semibold text-[36px] text-navy/85'>↓ NUESTROS SERVICIOS ↓</span>
       </div>
       <div className='flex flex-col gap-5'>
       {services.map((service,i) => (
         <div id={service.id} key={service.id} className='group flex h-[317px] scroll-mt-40 justify-between border border-gray-400 mx-20 '>
-          <div className='relative flex flex-col justify-center pl-15 gap-5 overflow-hidden bg-[#B0C3DA]/80 w-[50%]'>
+          <div className='relative flex flex-col justify-center gap-5 overflow-hidden bg-[#B0C3DA]/80 w-[50%]'>
             <div
               className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
               style={{ backgroundImage: `url('${service.img}')` }}
             />
-            <div className='relative z-10 flex font-semibold gap-3 w-fit text-navy transition-colors duration-500 ease-out group-hover:text-white'>
-              <p className='text-[32px] font-medium'>({i+1})</p>
-              <p className='text-[32px] font-display'> {service.name}</p>
+            <div className='relative z-10 flex justify-center font-semibold gap-3 w-fit text-nav m-auto transition-colors duration-500 ease-out group-hover:text-white'>
+              <p className='text-[24px] font-medium'>({i+1})</p>
+              <p className='text-[24px] font-display'> {service.name}</p>
             </div>
           </div>
           <div className='flex flex-col justify-between font-medium text-navy py-15 px-10 w-[50%]'>
