@@ -1,7 +1,12 @@
 'use client'
 
-import { Hero } from '@/components/Hero'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+const transports = [
+  { id: 'aereo', label: 'aéreo', img: '/servicios/transporte-aereo.jpg' },
+  { id: 'maritimo', label: 'marítimo', img: '/servicios/transporte-maritimo.jpg' },
+  { id: 'terrestre', label: 'terrestre', img: '/servicios/transporte-terrestre.avif' },
+] as const
 
 const services = [
   {
@@ -57,20 +62,40 @@ const services = [
 ]
 
 export default function page() {
+  const [heroImg, setHeroImg] = useState<string>(transports[0].img)
+
   useEffect(() => {
     const id = window.location.hash.slice(1)
     if (!id) return
-
     const timeout = window.setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 100)
-
     return () => window.clearTimeout(timeout)
   }, [])
 
   return (
     <div className='tracking-[3%] mb-20'>
-      <Hero/>
+      <section
+        className="relative h-[660px] bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url('${heroImg}')` }}
+      >
+        <div className='w-full h-full flex justify-end items-center pr-23'>
+          <div className='flex flex-col gap-10'>
+            {transports.map((transport) => (
+              <button
+                key={transport.id}
+                type="button"
+                onClick={() => setHeroImg(transport.img)}
+                className={`w-34 h-30 cursor-pointer rounded-xs ${
+                  heroImg === transport.img ? 'bg-gray-400' : 'bg-gray-300'
+                }`}
+              >
+                {transport.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
       <div className='mt-50 mr-20 mb-30 flex justify-end'>
         <span className='font-display font-semibold text-[36px] text-navy/85'>NUESTROS SERVICIOS ↓↓</span>
       </div>
