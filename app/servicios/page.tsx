@@ -62,7 +62,7 @@ const services = [
 ]
 
 export default function page() {
-  const [heroImg, setHeroImg] = useState<string>(transports[0].img)
+  const [active, setActive] = useState(0)
 
   useEffect(() => {
     const id = window.location.hash.slice(1)
@@ -73,21 +73,34 @@ export default function page() {
     return () => window.clearTimeout(timeout)
   }, [])
 
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActive((current) => (current + 1) % transports.length)
+    }, 5000)
+    return () => window.clearInterval(interval)
+  }, [active])
+
   return (
     <div className='tracking-[3%] mb-20'>
-      <section
-        className="relative h-[660px] bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: `url('${heroImg}')` }}
-      >
-        <div className='w-full h-full flex justify-end items-center pr-23'>
+      <section className="relative h-[660px] overflow-hidden">
+        {transports.map((transport, i) => (
+          <div
+            key={transport.id}
+            className={`absolute inset-0 bg-cover bg-center bg-fixed transition-opacity duration-1000 ease-in-out ${
+              i === active ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ backgroundImage: `url('${transport.img}')` }}
+          />
+        ))}
+        <div className='relative z-10 w-full h-full flex justify-end items-center pr-23'>
           <div className='flex flex-col gap-10'>
-            {transports.map((transport) => (
+            {transports.map((transport, i) => (
               <button
                 key={transport.id}
                 type="button"
-                onClick={() => setHeroImg(transport.img)}
+                onClick={() => setActive(i)}
                 className={`w-34 h-30 cursor-pointer rounded-xs ${
-                  heroImg === transport.img ? 'bg-gray-400' : 'bg-gray-300'
+                  i === active ? 'bg-gray-400' : 'bg-gray-300'
                 }`}
               >
                 {transport.label}
