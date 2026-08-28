@@ -53,28 +53,28 @@ const capabilities = [
 
 export function Capabilities() {
   return (
-    <section className="mx-auto max-w-[1440px] px-6 py-16 md:px-22 md:py-20">
-      <div className="mt-10 mb-20 items-center md:relative md:right-1 flex flex-col md:items-end text-right">
+    <section className="mx-auto max-w-[1440px] px-4 py-12 sm:px-6 sm:py-16 md:px-22 md:py-20">
+      <div className="mt-6 mb-12 items-center md:relative md:right-1 flex flex-col md:mt-10 md:mb-20 md:items-end text-right">
         <div className="text-center">
           <p className="font-nav text-xl text-center font-medium tracking-[0.03em] text-navy">
             ↓↓↓↓↓
           </p>
-          <h2 className="font-display mt-2 text-xl font-medium tracking-[0.03em] text-[#0C202B] uppercase">
+          <h2 className="font-display mt-2 text-base font-medium tracking-[0.03em] text-[#0C202B] uppercase sm:text-xl">
             Capacidades y Soluciones
           </h2>
         </div>
       </div>
 
-      <ul className="grid grid-cols-1 justify-items-center gap-y-24 sm:grid-cols-[repeat(2,max-content)] sm:justify-between sm:justify-items-stretch lg:grid-cols-[repeat(4,max-content)]">
+      <ul className="grid grid-cols-2 gap-x-3 gap-y-10 sm:gap-x-8 sm:gap-y-16 lg:grid-cols-4 lg:justify-items-center lg:gap-y-24">
         {capabilities.map((item) => (
-          <li key={item.number} className="flex w-fit flex-col items-center text-center">
-            <img className="mb-5 size-[82px]" src={item.img}/>
-            <p className="text-sm font-bold tracking-[0.03em] text-navy/85">
+          <li key={item.number} className="flex min-w-0 w-full flex-col items-center text-center">
+            <img className="mb-3 size-12 sm:mb-5 sm:size-[82px]" src={item.img} alt="" />
+            <p className="text-[11px] font-bold leading-tight tracking-[0.03em] text-navy/85 sm:text-sm sm:leading-normal">
               {item.number}
               <br />
               {item.title}
             </p>
-            <p className="mt-3 max-w-[230px] text-xs font-medium tracking-[0.03em] text-navy">
+            <p className="mt-2 max-w-full text-[10px] font-medium leading-snug tracking-[0.03em] text-navy sm:mt-3 sm:max-w-[230px] sm:text-xs sm:leading-normal">
               {item.copy}
             </p>
           </li>

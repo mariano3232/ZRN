@@ -44,7 +44,7 @@ export function Contact() {
 
   return (
     <footer id="contacto" className="bg-navy text-placeholder">
-      <div className="mx-auto max-w-[1440px] px-6 py-16 md:px-[78px] md:py-20">
+      <div className="mx-auto max-w-[1440px] px-6 pt-16 pb-20 md:px-[78px] md:py-20">
         <h2 className="font-display my-16 text-center text-[32px] font-semibold tracking-[0.03em]">
         ↓ CONTACTO ↓
         </h2>
@@ -101,8 +101,8 @@ export function Contact() {
             <img src={"/logo_footer.png"} className="h-[78px] w-[143px]" />
           </div>
           <address className="not-italic flex flex-col text-right text-sm font-normal tracking-[0.03em] text-white">
-            <span>Calle falsa 123, Puerto</span>
-            <span>Madero, CABA.</span>
+            {/* <span className="display-none">Calle falsa 123, Puerto</span>
+            <span className="display-none">Madero, CABA.</span> */}
             <span className="pt-2">(11) 35658579</span>
           </address>
         </div>
