@@ -54,7 +54,7 @@ const capabilities = [
 export function Capabilities() {
   return (
     <section className="mx-auto max-w-[1440px] px-6 py-16 md:px-22 md:py-20">
-      <div className="mt-10 mb-20 relative right-1 flex flex-col items-end text-right">
+      <div className="mt-10 mb-20 items-center md:relative md:right-1 flex flex-col md:items-end text-right">
         <div className="text-center">
           <p className="font-nav text-xl text-center font-medium tracking-[0.03em] text-navy">
             ↓↓↓↓↓
