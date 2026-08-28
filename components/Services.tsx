@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const services = [
   { title: "ASESORAMIENTO", bg_img:"/servicios/asesoramiento.png",  span: false, id: "asesoramiento" },
@@ -7,6 +10,65 @@ const services = [
   { title: "GESTIÓN ANTE TERCEROS", bg_img:"/servicios/gestion.png",  span: false, id: "gestion-ante-terceros" },
   { title: "APERTURA COMERCIAL", bg_img:"/servicios/apertura.png",  span: true, id: "apertura-comercial" },
 ];
+
+function ServiceCard({service,}: {service: (typeof services)[number]}) {
+  const ref = useRef<HTMLLIElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    let observer: IntersectionObserver | null = null;
+    const setup = () => {
+      observer?.disconnect();
+      observer = null;
+      if (mq.matches) {
+        setInView(false);
+        return;
+      }
+      observer = new IntersectionObserver(
+        ([entry]) => setInView(entry.isIntersecting),
+        { threshold: 0.5, rootMargin: "-25% 0px -25% 0px" },
+      );
+      observer.observe(el);
+    };
+    setup();
+    mq.addEventListener("change", setup);
+    return () => {
+      mq.removeEventListener("change", setup);
+      observer?.disconnect();
+    };
+  }, []);
+
+  return (
+    <li
+      ref={ref}
+      className={`h-[241px] ${service.span ? "md:col-span-2" : ""}`}
+    >
+      <Link
+        href={`/servicios#${service.id}`}
+        className="group relative block h-full overflow-hidden bg-service"
+      >
+        <div
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-out group-hover:opacity-100 ${
+            inView ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ backgroundImage: `url('${service.bg_img}')` }}
+        />
+        <div className="relative z-10 flex h-full w-full items-end justify-start text-base font-extrabold tracking-[0.03em]">
+          <p
+            className={`rounded-tr-1 px-5 py-2 transition-colors duration-500 ease-out group-hover:bg-navy group-hover:text-white ${
+              inView ? "bg-navy text-white" : "bg-transparent text-navy"
+            }`}
+          >
+            {service.title}
+          </p>
+        </div>
+      </Link>
+    </li>
+  );
+}
 
 export function Services() {
   return (
@@ -21,23 +83,7 @@ export function Services() {
 
       <ul className="grid grid-cols-1 gap-[5px] md:grid-cols-2">
         {services.map((service) => (
-          <li
-            key={service.title}
-            className={`h-[241px] ${service.span ? "md:col-span-2" : ""}`}
-          >
-            <Link
-              href={`/servicios#${service.id}`}
-              className="group relative block h-full overflow-hidden bg-service"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
-                style={{ backgroundImage: `url('${service.bg_img}')` }}
-              />
-              <p className="relative z-10 flex h-full w-full items-center justify-center text-base font-extrabold tracking-[0.03em] text-navy transition-colors duration-500 ease-out group-hover:text-white">
-                {service.title}
-              </p>
-            </Link>
-          </li>
+          <ServiceCard key={service.title} service={service} />
         ))}
       </ul>
     </section>
