@@ -44,7 +44,7 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
   return (
     <li
       ref={ref}
-      className={`h-[241px] ${service.span ? "md:col-span-2" : ""}`}
+      className={`min-w-0 h-[180px] sm:h-[200px] md:h-[241px] ${service.span ? "sm:col-span-2" : ""}`}
     >
       <Link
         href={`/servicios#${service.id}`}
