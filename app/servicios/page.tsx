@@ -188,12 +188,13 @@ export default function page() {
             style={{ backgroundImage: `url('${transport.img}')` }}
           />
         ))}
-        <div className="relative z-10 left-12 h-full w-full">
+        <div className="relative z-10 mx-auto h-full w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[78px]">
+          <div className="relative h-full">
           {transports.map((transport, i) => (
             'heading' in transport ? (
               <div
                 key={transport.id}
-                className={`absolute top-24 left-4 max-w-[250px] text-white transition-opacity duration-1000 ease-in-out sm:top-28 sm:left-8 sm:max-w-[320px] md:top-[143px] md:left-16 md:max-w-[364px] lg:left-[69px] ${
+                className={`absolute top-24 left-0 max-w-[250px] text-white transition-opacity duration-1000 ease-in-out sm:top-28 sm:max-w-[320px] md:top-[143px] md:max-w-[364px] ${
                   i === active ? 'opacity-100' : 'pointer-events-none opacity-0'
                 }`}
               >
@@ -218,7 +219,7 @@ export default function page() {
               </div>
             ) : null
           ))}
-          <div className="absolute inset-x-0 bottom-8 flex justify-center px-4 sm:px-8 md:inset-auto md:top-1/2 md:right-16 md:-translate-y-1/2 md:px-0 lg:right-41">
+          <div className="absolute inset-x-0 bottom-8 flex justify-center md:inset-auto md:top-1/2 md:right-0 md:-translate-y-1/2">
             <div className="flex flex-row gap-2 md:flex-col md:gap-4">
               {transports.map((transport, i) => (
                 <button
@@ -235,6 +236,7 @@ export default function page() {
                 </button>
               ))}
             </div>
+          </div>
           </div>
         </div>
       </section>

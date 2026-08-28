@@ -39,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <Contact/>
         <a
-          href="https://wa.me/542235272441?text=Hoooola idiota"
+          href="https://wa.me/542235272441?text= Hola, queria saber mas información sobre"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"

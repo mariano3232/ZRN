@@ -16,7 +16,7 @@ export function Brands() {
       <h2 className="mb-12 text-base font-medium tracking-[0.03em] text-navy">
         MARCAS QUE CONFIARON EN NOSOTROS  ↓ ↓
       </h2>
-      <Marquee speed={60} pauseOnHover className="mask-l-from-80% mask-r-from-80%">
+      <Marquee speed={60} pauseOnHover>
           {brands.map((brand) => (
             <div key={brand} className="mx-5">
               <img src={brand} className="h-[143px] w-full min-w-[300px] rounded-[10px]" />
