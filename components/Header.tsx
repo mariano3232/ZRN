@@ -98,7 +98,7 @@ export function Header() {
                 className={`font-nav flex items-center gap-1 rounded-[2px] px-3 py-1 text-base font-medium tracking-[0.03em] ${
                   pathname === "/servicios" && !navyControls ? "text-white" : "text-navy"
                 } ${
-                  active ? !scrolled2 ? "bg-[#A7CBF6]/40" : "bg-gray-100" : ""
+                  active ? !scrolled2 ? "bg-[#A7CBF6]/25" : "bg-gray-100" : ""
                 }`}
               >
                 {item.label}
