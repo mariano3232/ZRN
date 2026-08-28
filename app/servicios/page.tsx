@@ -10,8 +10,8 @@ const transports = [
     icon:"/transporte/aereo.png",
     heading: 'TRANSPORTE\nAÉREO',
     intro: "Para cargas urgentes o de alto valor que requieren entregas rápidas.",
-    plus: { strong: 'Rapidez', rest: ', alta frecuencia de vuelos y mayor seguridad' },
-    minus: { strong: 'Mayor costo', rest: ', menor capacidad de carga, restricciones sobre ciertos productos' },
+    plus: { strong: 'Rapidez', rest: ', alta frecuencia de vuelos y mayor seguridad.' },
+    minus: { strong: 'Mayor costo', rest: ', menor capacidad de carga, restricciones sobre ciertos productos.' },
   },
   { 
     id: 'maritimo',
@@ -19,9 +19,9 @@ const transports = [
     img: '/servicios/transporte-maritimo.jpg',
     icon:"/transporte/maritimo.png",
     heading: 'TRANSPORTE\nMARÍTIMO',
-    intro: "Para grandes volumenes de carga y operaciones donde el costo logístico es prioritario",
-    plus: { strong: 'Capacidad', rest: ', menor costo por volumen, ideal para cargas pesadas y de alto volumen' },
-    minus: { strong: 'Mayor tiempo de transito', rest: ', dependencia de itinerarios puertuarios' },
+    intro: "Para grandes volúmenes de carga y operaciones donde el costo logístico es prioritario.",
+    plus: { strong: 'Capacidad', rest: ', menor costo por volumen, ideal para cargas pesadas y de alto volumen.' },
+    minus: { strong: 'Mayor tiempo de tránsito', rest: ', dependencia de itinerarios portuarios.' },
   },
   {
     id: 'terrestre',
@@ -61,7 +61,7 @@ const services = [
     name: "DOCUMENTACIÓN",
     img: "/servicios/documentacion.png",
     items: [
-      <>Analizamos las características técnicas de la   mercadería para determinar su <strong>posición arancelaria.</strong></>,
+      <>Analizamos las características técnicas de la mercadería para determinar su <strong>posición arancelaria.</strong></>,
       <>Gestionamos y controlamos la <strong>documentación requerida</strong> en cada operación de comercio exterior.</>,
       <>Oficializamos la mercadería ante Aduana para dar inicio al proceso de despacho.</>,
     ],

@@ -1,5 +1,3 @@
-import { Placeholder } from "./Placeholder";
-
 const capabilities = [
   {
     number: "(1)",
@@ -10,7 +8,7 @@ const capabilities = [
   {
     number: "(2)",
     title: "Diagnóstico de viabilidad",
-    copy: "Transformamos la complejidad normativa en rutas claras y rentables para tu negocio",
+    copy: "Transformamos la complejidad normativa en rutas claras y rentables para tu negocio.",
     img:"/capacidades/diagnostico.png"
   },
   {
@@ -27,7 +25,7 @@ const capabilities = [
   },
   {
     number: "(5)",
-    title: "Tramites",
+    title: "Trámites",
     copy: "Agilizamos la burocracia para garantizar despachos rápidos y liberar tu mercadería a tiempo.",
     img:"/capacidades/tramites.png"
   },
@@ -45,7 +43,7 @@ const capabilities = [
   },
   {
     number: "(8)",
-    title: "Cotización agil",
+    title: "Cotización ágil",
     copy: "Presupuestos rápidos y claros para que tomes las mejores decisiones estratégicas sin perder tiempo.",
     img:"/capacidades/cotizacion.png"
   },

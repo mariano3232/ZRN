@@ -1,16 +1,17 @@
 "use client";
 
+import { Placeholder } from "@/components/Placeholder";
 import { useEffect, useRef, useState } from "react";
 
 const team = [
   {
-    caption: "—  Z. Sokac Ignacio,\nResponsable de Logística\ny CEO",
+    caption: "— Z. Sokac Ignacio,\nResponsable de Logística\ny CEO",
   },
   {
     caption: "— Z. Sokac Ivan,\nDespachante de Aduana",
   },
   {
-    caption: "— Z. Sokac Santiago.\nResponsable de la operativa\ndel puerto",
+    caption: "— Z. Sokac Santiago,\nResponsable de la operativa\ndel puerto",
   },
 ];
 
@@ -101,7 +102,8 @@ export default function page() {
               key={member.caption}
               className="relative h-[530px] overflow-hidden border border-navy bg-white"
             >
-              <div className="absolute inset-x-0 bottom-0 flex h-[154px] items-center justify-center bg-[#B0C3DA]/40 px-8">
+              <Placeholder className="absolute inset-0" />
+              <div className="absolute inset-x-0 bottom-0 z-10 flex h-[154px] items-center justify-center bg-[#B0C3DA]/40 px-8">
                 <p className="whitespace-pre-line text-center text-xl font-bold tracking-[0.03em] text-navy/85">
                   {member.caption}
                 </p>
