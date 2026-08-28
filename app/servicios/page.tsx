@@ -198,7 +198,7 @@ export default function page() {
                   i === active ? 'opacity-100' : 'pointer-events-none opacity-0'
                 }`}
               >
-                <div className="flex items-start gap-1.5 sm:gap-2">
+                <div className="flex items-start gap-1.5 sm:gap-2 relative right-[6px]">
                   <span className="font-nav mt-0.5 text-lg font-medium tracking-[0.03em] sm:mt-1 sm:text-[22px] md:text-[26px]">
                     ↓
                   </span>
@@ -219,7 +219,7 @@ export default function page() {
               </div>
             ) : null
           ))}
-          <div className="absolute inset-x-0 bottom-8 flex justify-center md:inset-auto md:top-1/2 md:right-0 md:-translate-y-1/2">
+          <div className="absolute inset-x-0 bottom-8 flex justify-center md:inset-auto md:top-[143px] md:right-0">
             <div className="flex flex-row gap-2 md:flex-col md:gap-4">
               {transports.map((transport, i) => (
                 <button
