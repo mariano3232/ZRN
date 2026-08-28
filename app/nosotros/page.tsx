@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 const team = [
   {
     caption: "—  Z. Sokac Ignacio,\nResponsable de Logística\ny CEO",
@@ -28,17 +32,57 @@ const values = [
   },
 ];
 
+function IntroCopy() {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    let observer: IntersectionObserver | null = null;
+    const setup = () => {
+      observer?.disconnect();
+      observer = null;
+      if (mq.matches) {
+        setInView(false);
+        return;
+      }
+      observer = new IntersectionObserver(
+        ([entry]) => setInView(entry.isIntersecting),
+        { threshold: 0.5, rootMargin: "-25% 0px -25% 0px" },
+      );
+      observer.observe(el);
+    };
+    setup();
+    mq.addEventListener("change", setup);
+    return () => {
+      mq.removeEventListener("change", setup);
+      observer?.disconnect();
+    };
+  }, []);
+
+  return (
+    <p
+      ref={ref}
+      className={`select-none pb-45 text-justify text-[28px] font-bold leading-[1.35] tracking-[-0.03em] indent-[50px] transition duration-500 hover:text-navy/50 md:indent-[300px] md:text-[48px] ${
+        inView ? "text-navy/50" : ""
+      }`}
+    >
+      <span>En ZRN creemos que <b className="text-navy">lo nacional</b> también puede </span>
+      <span>llegar lejos. Impulsamos el desarrollo de proyectos con </span>
+      <span>estrategia y <b className="text-navy">comunicación</b>, creando nuevas </span>
+      <span><b className="text-navy">oportunidades</b> con claridad y acompañamiento para </span>
+      <span>potenciar su <b className="text-navy">crecimiento.</b></span>
+    </p>
+  );
+}
+
 export default function page() {
   return (
     <div className="mb-24">
       <section className="mx-auto max-w-[1440px] px-6 pt-52 md:px-[78px] md:pt-56">
-        <p className="select-none pb-45 text-justify text-[28px] hover:text-navy/50 transition duration-500 font-bold leading-[1.35] tracking-[-0.03em] indent-[300px] md:text-[48px]">
-          <span>En ZRN creemos que <b className="text-navy">lo nacional</b> también puede </span>
-          <span>llegar lejos. Impulsamos el desarrollo de proyectos con </span>
-          <span>estrategia y <b className="text-navy">comunicación</b>, creando nuevas </span>
-          <span><b className="text-navy">oportunidades</b> con claridad y acompañamiento para </span>
-          <span>potenciar su <b className="text-navy">crecimiento.</b></span>
-        </p>
+        <IntroCopy />
       </section>
 
       <section className="mx-auto max-w-[1440px] px-6 md:px-[78px]">

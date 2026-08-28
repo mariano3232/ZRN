@@ -3,9 +3,36 @@
 import { useEffect, useRef, useState } from 'react'
 
 const transports = [
-  { id: 'aereo', label: 'aéreo', img: '/servicios/transporte-aereo.jpg', icon:"/transporte/aereo.png" },
-  { id: 'maritimo', label: 'marítimo', img: '/servicios/transporte-maritimo.jpg', icon:"/transporte/maritimo.png" },
-  { id: 'terrestre', label: 'terrestre', img: '/servicios/transporte-terrestre.png', icon:"/transporte/terrestre.png" },
+  { 
+    id: 'aereo',
+    label: 'aéreo',
+    img: '/servicios/transporte-aereo.jpg',
+    icon:"/transporte/aereo.png",
+    heading: 'TRANSPORTE\nAÉREO',
+    intro: "Para cargas urgentes o de alto valor que requieren entregas rápidas.",
+    plus: { strong: 'Rapidez', rest: ', alta frecuencia de vuelos y mayor seguridad' },
+    minus: { strong: 'Mayor costo', rest: ', menor capacidad de carga, restricciones sobre ciertos productos' },
+  },
+  { 
+    id: 'maritimo',
+    label: 'marítimo',
+    img: '/servicios/transporte-maritimo.jpg',
+    icon:"/transporte/maritimo.png",
+    heading: 'TRANSPORTE\nMARÍTIMO',
+    intro: "Para grandes volumenes de carga y operaciones donde el costo logístico es prioritario",
+    plus: { strong: 'Capacidad', rest: ', menor costo por volumen, ideal para cargas pesadas y de alto volumen' },
+    minus: { strong: 'Mayor tiempo de transito', rest: ', dependencia de itinerarios puertuarios' },
+  },
+  {
+    id: 'terrestre',
+    label: 'terrestre',
+    img: '/servicios/transporte-terrestre.png',
+    icon:"/transporte/terrestre.png",
+    heading: 'TRANSPORTE\nTERRESTRE',
+    intro: 'Para operaciones regionales y cargas que requieren flexibilidad y conexión directa entre origen y destino.',
+    plus: { strong: 'Flexibilidad', rest: ', servicio puerta a puerta y conectividad regional.' },
+    minus: { strong: 'Tiempos', rest: ' variables según rutas y fronteras, menor capacidad y mayores costos en largas distancias.' },
+  },
 ] as const
 
 const services = [
@@ -103,7 +130,7 @@ function ServiceRow({
       id={service.id}
       className="group flex scroll-mt-28 flex-col border border-gray-400 lg:h-[317px] lg:scroll-mt-40 lg:flex-row lg:justify-between"
     >
-      <div className="relative flex min-h-[120px] flex-col justify-center overflow-hidden bg-[#B0C3DA]/80 px-4 py-8 sm:min-h-[160px] lg:h-full lg:w-1/2 lg:px-0 lg:py-0">
+      <div className="relative flex min-h-[120px] flex-col justify-center overflow-hidden lg:w-[50%] bg-[#B0C3DA]/80 px-4 py-8 sm:min-h-[160px] lg:px-0 lg:py-0">
         <div
           className={`absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 ${
             inView ? "opacity-100" : ""
@@ -151,7 +178,7 @@ export default function page() {
 
   return (
     <div className='tracking-[3%] mb-12 sm:mb-16 md:mb-20'>
-      <section className="relative h-[480px] overflow-hidden sm:h-[560px] md:h-[660px]">
+      <section className="relative h-[480px] overflow-hidden sm:h-[560px] md:h-[700px]">
         {transports.map((transport, i) => (
           <div
             key={transport.id}
@@ -161,22 +188,53 @@ export default function page() {
             style={{ backgroundImage: `url('${transport.img}')` }}
           />
         ))}
-        <div className="relative z-10 flex h-full w-full items-end justify-center px-4 pb-8 sm:px-8 md:items-center md:justify-start md:px-16 md:pb-0 md:pt-12 lg:px-28">
-          <div className="flex flex-row gap-3 md:flex-col md:gap-10">
-            {transports.map((transport, i) => (
-              <button
+        <div className="relative z-10 left-12 h-full w-full">
+          {transports.map((transport, i) => (
+            'heading' in transport ? (
+              <div
                 key={transport.id}
-                type="button"
-                aria-label={transport.label}
-                aria-pressed={i === active}
-                onClick={() => setActive(i)}
-                className={`size-16 cursor-pointer rounded-xs p-3 sm:size-24 sm:p-4 md:h-30 md:w-34 md:p-5 ${
-                  i === active ? 'bg-[#A7CBF6]' : 'bg-[#B0C3DA]/80'
+                className={`absolute top-24 left-4 max-w-[250px] text-white transition-opacity duration-1000 ease-in-out sm:top-28 sm:left-8 sm:max-w-[320px] md:top-[143px] md:left-16 md:max-w-[364px] lg:left-[69px] ${
+                  i === active ? 'opacity-100' : 'pointer-events-none opacity-0'
                 }`}
               >
-                <img src={transport.icon} alt="" className="size-full object-contain" />
-              </button>
-            ))}
+                <div className="flex items-start gap-1.5 sm:gap-2">
+                  <span className="font-nav mt-0.5 text-lg font-medium tracking-[0.03em] sm:mt-1 sm:text-[22px] md:text-[26px]">
+                    ↓
+                  </span>
+                  <h1 className="font-display text-[22px] leading-[1.2] font-semibold tracking-[0.03em] uppercase whitespace-pre-line sm:text-[28px] md:text-[34.5px]">
+                    {transport.heading}
+                  </h1>
+                </div>
+                <p className="mt-6 text-[13px] leading-snug font-semibold tracking-[0.03em] sm:mt-8 sm:text-[15px] sm:leading-normal md:mt-10 md:text-base">
+                  {transport.intro}
+                </p>
+                <p className="mt-4 text-[13px] leading-snug font-medium tracking-[0.03em] sm:text-[15px] sm:leading-normal md:mt-5 md:text-base">
+                  (+) <span className="font-semibold">{transport.plus.strong}</span>
+                  {transport.plus.rest}
+                  <br />
+                  (-) <span className="font-semibold">{transport.minus.strong}</span>
+                  {transport.minus.rest}
+                </p>
+              </div>
+            ) : null
+          ))}
+          <div className="absolute inset-x-0 bottom-8 flex justify-center px-4 sm:px-8 md:inset-auto md:top-1/2 md:right-16 md:-translate-y-1/2 md:px-0 lg:right-41">
+            <div className="flex flex-row gap-2 md:flex-col md:gap-4">
+              {transports.map((transport, i) => (
+                <button
+                  key={transport.id}
+                  type="button"
+                  aria-label={transport.label}
+                  aria-pressed={i === active}
+                  onClick={() => setActive(i)}
+                  className={`size-16 cursor-pointer rounded-xs p-3 sm:size-24 sm:p-4 md:size-30 md:p-5 ${
+                    i === active ? 'bg-[#A7CBF6]' : 'bg-[#B0C3DA]/80'
+                  }`}
+                >
+                  <img src={transport.icon} alt="" className="size-full object-contain" />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
