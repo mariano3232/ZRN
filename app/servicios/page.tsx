@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from 'react'
 
 const transports = [
-  { id: 'aereo', label: 'aéreo', img: '/servicios/transporte-aereo.jpg', icon:"/transporte/terrestre.png" },
+  { id: 'aereo', label: 'aéreo', img: '/servicios/transporte-aereo.jpg', icon:"/transporte/aereo.png" },
   { id: 'maritimo', label: 'marítimo', img: '/servicios/transporte-maritimo.jpg', icon:"/transporte/maritimo.png" },
-  { id: 'terrestre', label: 'terrestre', img: '/servicios/transporte-terrestre.avif', icon:"/transporte/aereo.png" },
+  { id: 'terrestre', label: 'terrestre', img: '/servicios/transporte-terrestre.png', icon:"/transporte/terrestre.png" },
 ] as const
 
 const services = [
