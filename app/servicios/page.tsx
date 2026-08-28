@@ -241,7 +241,7 @@ export default function page() {
         </div>
       </section>
       <div className="mt-16 mb-10 flex justify-center px-4 sm:mt-24 sm:mb-16 md:mt-50 md:mb-30">
-        <span className="font-display text-center text-xl font-semibold text-navy/85 sm:text-2xl md:text-[36px]">
+        <span className="font-display text-center text-xl font-semibold text-navy/85 sm:text-2xl md:text-[32px]">
           ↓ NUESTROS SERVICIOS ↓
         </span>
       </div>
