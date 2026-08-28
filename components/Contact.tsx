@@ -101,7 +101,7 @@ export function Contact() {
             <img src="/logo_footer.png" alt="ZRN Comex" className="h-[78px] w-[143px]" />
           </div>
           <address className="not-italic flex flex-col text-right text-sm font-normal tracking-[0.03em] text-white">
-            <span className="pt-2">(11) 35658579</span>
+            {/* <span className="pt-2">(11) 35658579</span> */}
           </address>
         </div>
       </div>
