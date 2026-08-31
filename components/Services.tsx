@@ -52,7 +52,7 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
       >
         <div
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-out group-hover:opacity-100 ${
-            inView ? "opacity-100" : "opacity-0"
+            inView ? "opacity-100" : "opacity-15"
           }`}
           style={{ backgroundImage: `url('${service.bg_img}')` }}
         />
