@@ -130,20 +130,21 @@ function ServiceRow({
       id={service.id}
       className="group flex scroll-mt-28 flex-col border border-gray-400 lg:h-[317px] lg:scroll-mt-40 lg:flex-row lg:justify-between"
     >
-      <div className="relative flex min-h-[120px] flex-col justify-center overflow-hidden lg:w-[50%] bg-[#B0C3DA]/80 px-4 py-8 sm:min-h-[160px] lg:px-0 lg:py-0">
+      <div className="relative flex min-h-[120px] flex-col justify-center overflow-hidden lg:w-[50%] bg-[#494444] px-4 py-8 sm:min-h-[160px] lg:px-0 lg:py-0">
         <div
           className={`absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 ${
-            inView ? "opacity-100" : ""
+            inView ? "opacity-100" : "opacity-50"
           }`}
           style={{ backgroundImage: `url('${service.img}')` }}
         />
-        <div
-          className={`relative z-10 m-auto flex w-fit justify-center gap-2 font-semibold text-navy transition-colors duration-500 ease-out group-hover:text-white sm:gap-3 ${
-            inView ? "text-white" : ""
-          }`}
-        >
-          <p className="text-base font-medium sm:text-xl lg:text-[24px]">({index + 1})</p>
-          <p className="font-display text-base sm:text-xl lg:text-[24px]">{service.name}</p>
+        <div className="relative z-10 flex h-full w-full items-end justify-start text-base font-extrabold tracking-[0.03em]">
+          <p
+            className={`rounded-tr-1 px-5 py-2 transition-colors duration-500 ease-out group-hover:bg-navy group-hover:text-white ${
+              inView ? "bg-navy text-white" : "bg-[#A7CBF6] text-navy"
+            }`}
+          >
+            {service.name}
+          </p>
         </div>
       </div>
       <div className="flex flex-col justify-between gap-4 px-5 py-6 font-medium text-navy sm:gap-5 sm:px-8 sm:py-8 lg:w-1/2 lg:gap-0 lg:px-10 lg:py-15">
@@ -240,10 +241,16 @@ export default function page() {
           </div>
         </div>
       </section>
-      <div className="mt-16 mb-10 flex justify-center px-4 sm:mt-24 sm:mb-16 md:mt-50 md:mb-30">
-        <span className="font-display text-center text-xl font-semibold text-navy/85 sm:text-2xl md:text-[32px]">
-          ↓ NUESTROS SERVICIOS ↓
-        </span>
+      <div className="mt-16 mb-15 flex justify-center px-4 sm:mt-24 sm:mb-16 md:mt-50 md:mb-30">
+        <div className="flex flex-col items-center justify-center gap-5">
+          {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
+          <h2 className="font-display text-center my-4 text-xl font-semibold tracking-[0.03em] text-navy uppercase">
+            {/* Nuestros servicios */}
+            ¿Como trabajamos?
+          </h2>
+          <span className="font-nav text-xl font-medium text-navy">↓ ↓</span>
+          {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
+        </div>
       </div>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-5 px-4 sm:px-6 md:px-10 lg:px-20">
         {services.map((service, i) => (
