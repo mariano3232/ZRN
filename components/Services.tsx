@@ -48,19 +48,17 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
     >
       <Link
         href={`/servicios#${service.id}`}
-        className="group relative block h-full overflow-hidden bg-service"
+        className="group relative block h-full overflow-hidden bg-[#494444]/40"
       >
         <div
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-out group-hover:opacity-100 ${
-            inView ? "opacity-100" : "opacity-15"
+            inView ? "opacity-100" : "opacity-60"
           }`}
           style={{ backgroundImage: `url('${service.bg_img}')` }}
         />
         <div className="relative z-10 flex h-full w-full items-end justify-start text-base font-extrabold tracking-[0.03em]">
           <p
-            className={`rounded-tr-1 px-5 py-2 transition-colors duration-500 ease-out group-hover:bg-navy group-hover:text-white ${
-              inView ? "bg-navy text-white" : "bg-transparent text-navy"
-            }`}
+            className={`rounded-tr-1 px-5 py-2 transition-colors duration-500 ease-out bg-navy text-white`}
           >
             {service.title}
           </p>
