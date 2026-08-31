@@ -8,7 +8,7 @@ const capabilities = [
   {
     number: "(2)",
     title: "Diagnóstico de viabilidad",
-    copy: "Transformamos la complejidad normativa en rutas claras y rentables para tu negocio.",
+    copy: "Analizamos en detalle tú operación y transformamos las complejidades normativa en rutas claras y rentables para tu negocio.",
     img:"/capacidades/diagnostico.png"
   },
   {
@@ -25,14 +25,14 @@ const capabilities = [
   },
   {
     number: "(5)",
-    title: "Trámites",
-    copy: "Agilizamos la burocracia para garantizar despachos rápidos y liberar tu mercadería a tiempo.",
+    title: "Puesta en marcha",
+    copy: "Resolvemos los tramites burocraticos que sean necesarios para dar inicio a tu operación y le damos seguimiento para que la carga llegue a tiempo.",
     img:"/capacidades/tramites.png"
   },
   {
     number: "(6)",
     title: "Respaldo regulatorio",
-    copy: "Destrabamos permisos ante entes oficiales para que tu marca opere con total tranquilidad.",
+    copy: "Gestionamos los permisos necesarios para que tu marca opere con total tranquilidad dentro y fuera del pais.",
     img:"/capacidades/respaldo.png"
   },
   {

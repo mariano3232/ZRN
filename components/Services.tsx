@@ -74,11 +74,12 @@ export function Services() {
   return (
     <section id="servicios" className="mx-auto max-w-[1440px] px-6 py-12 md:px-[74px] md:py-16">
       <div className="mb-10 flex items-center justify-center gap-4">
-        <span className="font-nav text-xl font-medium text-navy">↓</span>
+        {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
         <h2 className="font-display text-center my-4 text-xl font-semibold tracking-[0.03em] text-navy uppercase">
-          Nuestros servicios
+          {/* Nuestros servicios */}
+          ¿ Como trabajamos ?
         </h2>
-        <span className="font-nav text-xl font-medium text-navy">↓</span>
+        {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
       </div>
 
       <ul className="grid grid-cols-1 gap-[5px] md:grid-cols-2">
