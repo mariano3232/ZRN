@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 
 const brands = [
-  "/marcas/BioOrigen.png",
+  "/marcas/BioGreen.png",
   "/marcas/Global.png",
   "/marcas/GUM.png",
   "/marcas/Moblar.png",
@@ -18,8 +18,8 @@ export function Brands() {
       </h2>
       <Marquee speed={60} pauseOnHover>
           {brands.map((brand) => (
-            <div key={brand} className="mx-5">
-              <img src={brand} className="h-[143px] w-full min-w-[300px] rounded-[10px]" />
+            <div key={brand} className="mx-5 rounded-xl overflow-hidden">
+              <img src={brand} className="h-[143px] w-full min-w-[300px] rounded-xl " />
             </div>
           ))}
       </Marquee>

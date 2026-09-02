@@ -4,34 +4,35 @@ import { useEffect, useRef, useState } from 'react'
 
 const transports = [
   { 
-    id: 'aereo',
-    label: 'aéreo',
-    img: '/servicios/transporte-aereo.jpg',
+    id: 'mudanzas',
+    label: 'mudanzas',
+    img: '/servicios/mudanza.png',
     icon:"/transporte/aereo.png",
-    heading: 'TRANSPORTE\nAÉREO',
-    intro: "Para cargas urgentes o de alto valor que requieren entregas rápidas.",
-    plus: { strong: 'Rapidez', rest: ', alta frecuencia de vuelos y mayor seguridad.' },
-    minus: { strong: 'Mayor costo', rest: ', menor capacidad de carga, restricciones sobre ciertos productos.' },
+    heading: 'MUDANZAS\nINTERNACIONALES',
+    intro: "Te ayudamos a relocalizar tu hogar o tu oficina entre países, con embalaje, gestión aduanera y entrega coordinada en destino.",
+    plus: { strong: 'Acompañamiento', rest: ' integral y coordinación puerta a puerta.' },
+    minus: { strong: 'Tiempos', rest: ' variables según destino, volumen y requisitos de cada aduana.' },
   },
   { 
-    id: 'maritimo',
-    label: 'marítimo',
+    id: 'import',
+    label: 'importacion',
     img: '/servicios/transporte-maritimo.jpg',
+    // img: '/servicios/upscale-maritimo.jpeg',
     icon:"/transporte/maritimo.png",
-    heading: 'TRANSPORTE\nMARÍTIMO',
-    intro: "Para grandes volúmenes de carga y operaciones donde el costo logístico es prioritario.",
-    plus: { strong: 'Capacidad', rest: ', menor costo por volumen, ideal para cargas pesadas y de alto volumen.' },
-    minus: { strong: 'Mayor tiempo de tránsito', rest: ', dependencia de itinerarios portuarios.' },
+    heading: 'IMPORTACIÓN',
+    intro: "Nos encargamos de ingresar mercadería al país con gestión aduanera, clasificación y coordinación logística de origen a destino.",
+    plus: { strong: 'Gestión integral', rest: ', documentación, despacho y seguimiento hasta la liberación de la carga.' },
+    minus: { strong: 'Tiempos', rest: ' sujetos a controles aduaneros, intervenciones y tipo de mercadería.' },
   },
   {
-    id: 'terrestre',
-    label: 'terrestre',
+    id: 'expo',
+    label: 'exportacion',
     img: '/servicios/transporte-terrestre.png',
     icon:"/transporte/terrestre.png",
-    heading: 'TRANSPORTE\nTERRESTRE',
-    intro: 'Para operaciones regionales y cargas que requieren flexibilidad y conexión directa entre origen y destino.',
-    plus: { strong: 'Flexibilidad', rest: ', servicio puerta a puerta y conectividad regional.' },
-    minus: { strong: 'Tiempos', rest: ' variables según rutas y fronteras, menor capacidad y mayores costos en largas distancias.' },
+    heading: 'EXPORTACIÓN',
+    intro: 'Nos encargamos de egresar tu mercadería del país con gestión aduanera, documentación y coordinación logística hasta el destino.',
+    plus: { strong: 'Gestión integral', rest: ', permisos, oficialización y seguimiento de la carga en origen y destino.' },
+    minus: { strong: 'Tiempos', rest: ' sujetos a controles aduaneros, requisitos del país de destino y tipo de mercadería.' },
   },
 ] as const
 
@@ -229,7 +230,7 @@ export default function page() {
                   aria-label={transport.label}
                   aria-pressed={i === active}
                   onClick={() => setActive(i)}
-                  className={`size-16 cursor-pointer rounded-xs p-3 sm:size-24 sm:p-4 md:size-30 md:p-5 ${
+                  className={`size-16 cursor-pointer rounded-xs p-3 transition-colors duration-700 ease-in-out sm:size-24 sm:p-4 md:size-30 md:p-5 ${
                     i === active ? 'bg-[#A7CBF6]' : 'bg-[#B0C3DA]/80'
                   }`}
                 >
