@@ -5,13 +5,13 @@ import { useEffect, useRef, useState } from "react";
 
 const team = [
   {
-    caption: "— Z. Sokac Ignacio,\nResponsable de Logística\ny CEO",
+    caption: "— Z. Sokac Ignacio,\nCo-founder & Comercial",
   },
   {
-    caption: "— Z. Sokac Ivan,\nDespachante de Aduana",
+    caption: "— Z. Sokac Ivan,\nCo-founder & Despachante de Aduana",
   },
   {
-    caption: "— Z. Sokac Santiago,\nResponsable de la operativa\ndel puerto",
+    caption: "— Z. Sokac Santiago,\nCo-founder & operativa",
   },
 ];
 
@@ -70,11 +70,11 @@ function IntroCopy() {
         inView ? "text-navy/50" : ""
       }`}
     >
-      <span>En ZRN creemos que <b className="text-navy">lo nacional</b> también puede </span>
-      <span>llegar lejos. Impulsamos el desarrollo de proyectos con </span>
-      <span>estrategia y <b className="text-navy">comunicación</b>, creando nuevas </span>
-      <span><b className="text-navy">oportunidades</b> con claridad y acompañamiento para </span>
-      <span>potenciar su <b className="text-navy">crecimiento.</b></span>
+      <span>En ZRN creemos que <b className="text-navy">lo nacional puede</b></span>
+      <span><b className="text-navy"> llegar lejos</b>, hacemos que <b className="text-navy">tu mercadería cruce fronteras.</b></span>
+      <span> Gestionamos y coordinamos lo necesario para llevar</span>
+      <span> adelante <b className="text-navy">tu operación</b> de <b className="text-navy">importación o exportación</b>, </span>
+      <span>acompañándote a vos y a tu negocio de principio a fin.</span>
     </p>
   );
 }
@@ -112,17 +112,19 @@ export default function page() {
           ))}
         </ul>
       </section>
-
+      <section className="mx-auto max-w-[1440px] px-6 md:px-[78px] mt-30 text-navy/85">
+        <h1 className="font-display mt-2 text-xl text-center font-semibold tracking-[0.03em] text-navy/85 uppercase">Nuestra historia</h1>
+        <h3 className="font-[20px] py-5 font-bold text-center"></h3>
+        <div className="justify-between flex flex-col md:flex-row">
+          <p className="w-full md:w-[33%] px-10"><b>Una trayectoria que continúa</b>. <br/> Somos una empresa familiar con 35 años <br/> de experiencia en el rubro. Luego de años </p>
+          <div className="w-[2px] rounded bg-gray-200 md:h-[70px]"/>
+          <p className="w-full md:w-[33%] px-10">de desarrollo y de adquirir conocimientos en distintos ámbitos del comercio exterior, decidimos crear ZRN.</p>
+          <div className="w-[2px] rounded bg-gray-200 md:h-[70px]"/>
+          <p className="w-full md:w-[33%] px-10">Hoy nuestro objetivo es consolidarnos como empresa familiar y continuar la trayectoria que comenzó hace 35 años.</p>
+        </div>
+        
+      </section>
       <section className="mx-auto mt-24 max-w-[1440px] px-6 md:mt-28 md:px-[78px]">
-        {/* <div className="mb-16">
-          <p className="font-nav text-xl font-medium tracking-[0.03em] text-navy">
-            ↓↓↓↓↓
-          </p>
-          <h2 className="font-display mt-2 text-xl font-semibold tracking-[0.03em] text-navy/85 uppercase">
-            Nuestros ideales
-          </h2>
-        </div> */}
-
         <ul className="grid grid-cols-1 justify-items-center gap-y-16 md:grid-cols-3 md:justify-items-center mt-35 mb-60 md:gap-x-8">
           {values.map((value) => (
             <li key={value.title} className="flex w-full max-w-[315px] flex-col items-center text-center">

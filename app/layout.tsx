@@ -3,6 +3,7 @@ import { DM_Sans, Inter_Tight, Syne } from "next/font/google";
 import { Header } from "../components/Header";
 import "./globals.css";
 import { Contact } from "@/components/Contact";
+import { ViewTransition } from "react";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -36,7 +37,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="relative min-h-full bg-background text-foreground">
         <Header />
-        {children}
+        <ViewTransition>
+          {children}
+        </ViewTransition>
+        
         <Contact/>
         <a
           href={`https://wa.me/541135658579?text=${encodeURIComponent("Hola, quería más información sobre sus servicios.")}`}

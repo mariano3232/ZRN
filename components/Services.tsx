@@ -48,18 +48,18 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
     >
       <Link
         href={`/servicios#${service.id}`}
-        className="group relative block h-full overflow-hidden bg-service"
+        className="group relative block h-full overflow-hidden bg-[#494444]/50"
       >
         <div
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-out group-hover:opacity-100 ${
-            inView ? "opacity-100" : "opacity-0"
+            inView ? "opacity-100" : "opacity-50"
           }`}
           style={{ backgroundImage: `url('${service.bg_img}')` }}
         />
         <div className="relative z-10 flex h-full w-full items-end justify-start text-base font-extrabold tracking-[0.03em]">
           <p
             className={`rounded-tr-1 px-5 py-2 transition-colors duration-500 ease-out group-hover:bg-navy group-hover:text-white ${
-              inView ? "bg-navy text-white" : "bg-transparent text-navy"
+              inView ? "bg-navy text-white" : "bg-[#A7CBF6] text-navy"
             }`}
           >
             {service.title}
@@ -73,14 +73,16 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
 export function Services() {
   return (
     <section id="servicios" className="mx-auto max-w-[1440px] px-6 py-12 md:px-[74px] md:py-16">
-      <div className="mb-10 flex items-center justify-center gap-4">
-        <span className="font-nav text-xl font-medium text-navy">↓</span>
+      <div className="mb-25 flex flex-col items-center justify-center gap-5">
+        {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
         <h2 className="font-display text-center my-4 text-xl font-semibold tracking-[0.03em] text-navy uppercase">
-          Nuestros servicios
+          {/* Nuestros servicios */}
+          ¿Como trabajamos?
         </h2>
-        <span className="font-nav text-xl font-medium text-navy">↓</span>
+        <span className="font-nav text-xl font-medium text-navy">↓ ↓</span>
+        {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
       </div>
-
+      
       <ul className="grid grid-cols-1 gap-[5px] md:grid-cols-2">
         {services.map((service) => (
           <ServiceCard key={service.title} service={service} />
