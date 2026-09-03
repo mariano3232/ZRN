@@ -4,30 +4,64 @@ import { useCallback, useLayoutEffect, useRef, useState, type PointerEvent } fro
 
 const reviews = [
   {
-    quote:
-      "“Trabajar con ZRN nos permitió simplificar todo el proceso de importación. Se encargaron de la gestión aduanera y la coordinación logística de principio a fin, manteniéndonos informados en cada etapa. Destacamos especialmente la atención personalizada y la rapidez para resolver cualquier imprevisto.”",
-    author: "— Martín Rodríguez, Gerente de Operaciones · Grupo Andina",
-    stars: 5,
+    quote: "Excelente servicio, efectiva solución de problemas.",
+    time: "+5 años juntos",
+    author: "(San Agustín SA)",
+    icon: "/marcas/SanAgustinIcon.png",
+    list: [
+      "Cordialidad y atención",
+      "Disponibilidad en consultas",
+      "Comunicación clara",
+      "Acompañamiento",
+      "Resolución de problemas",
+      "Confianza y tranquilidad",
+    ],
   },
   {
     quote:
-      "“Excelente experiencia. Nos acompañaron durante toda la operación de importación y estuvieron atentos a cada detalle. La comunicación fue clara y rápida, incluso cuando surgieron imprevistos. Sin dudas volveríamos a trabajar con ellos.”",
-    author: "— Lucía Fernández, Gerente de Compras · Norte Industrial S.A.",
-    stars: 5,
+      "Tenemos un historial de éxitos en las operaciones qué llevamos a cabo juntos, siempre con toda la predisposición para sumarse a nuestros proyectos con profesionalismo y calidad humana. Personalmente lo considero un soporte de confianza y gran aliado.",
+    time: "+5 años juntos",
+    author: "Nicolás Ricordi\n(Biogreen)",
+    size:'text-[5px]',
+    icon: "/marcas/BioGreenIcon.png",
+    list: [
+      "Cordialidad y atención",
+      "Disponibilidad en consultas",
+      "Comunicación clara",
+      "Acompañamiento",
+      "Resolución de problemas",
+      "Confianza y tranquilidad",
+    ],
   },
   {
     quote:
-      "“Muy buen servicio y excelente predisposición del equipo. Nos ayudaron especialmente con la gestión aduanera y la coordinación del transporte. Como punto a mejorar, nos hubiera gustado contar con un poco más de información sobre los tiempos de entrega.”",
-    author: "— Diego Martínez, Responsable de Comercio Exterior · TecnoSur",
-    stars: 4,
+      "Dinamica y eficiente",
+    time: "Entre 1 y 3 años juntos",
+    author: "PHARMAEXPRESS S.A.",
+    icon: "/marcas/PHARMA.png",
+    list: [
+      "Cordialidad y atención",
+      "Comunicación clara",
+      "Confianza y tranquilidad",
+    ],
   },
   {
     quote:
-      "“El servicio fue bueno y la operación llegó a destino correctamente. Tuvimos algunos inconvenientes con los tiempos y la comunicación durante el proceso, aunque el equipo finalmente pudo resolverlos. La experiencia general fue positiva.”",
-    author: "— Carolina Méndez, Responsable de Logística · Industrias Delta",
-    stars: 3,
+      "Servicio eficiente y de confianza",
+    time: "Entre 1 y 3 años juntos",
+    author: "Matias Ayala - DIMPACK SRL",
+    icon: "/marcas/dimpack.webp",
+    list: [
+      "Cordialidad y atención",
+      "Disponibilidad en consultas",
+      "Comunicación clara",
+      "Acompañamiento",
+      "Resolución de problemas",
+      "Confianza y tranquilidad",
+    ],
   },
-];
+
+]
 
 const copies = [0, 1, 2] as const;
 
@@ -128,27 +162,42 @@ export function Reviews() {
           reviews.map((review) => (
             <li
               key={`${copy}-${review.author}`}
-              className="flex min-h-[499px] w-full shrink-0 flex-col items-center border border-gray-500 bg-white px-10 pt-16 pb-12 sm:w-[calc((100%-12px)/2)] lg:w-[calc((100%-24px)/3)]"
+              className="flex h-[564px] w-full shrink-0 flex-col overflow-hidden border-[0.5px] border-gray-200 bg-white sm:w-[calc((100%-12px)/2)] lg:w-[calc((100%-24px)/3)]"
             >
-              <div className="mb-10 flex">
-                {Array(review.stars)
-                  .fill(1)
-                  .map((_, i) => (
-                    <img key={i + 100} src="/full_star.png" alt="" draggable={false} />
-                  ))}
-                {Array(5 - review.stars)
-                  .fill(1)
-                  .map((_, i) => (
-                    <img key={i + 200} src="/star.png" alt="" draggable={false} />
-                  ))}
-              </div>
-              <div className="flex h-full flex-col justify-between">
-                <blockquote className="mx-auto max-w-[270px] text-center text-[15px] font-medium tracking-[0.03em] text-navy">
-                  {review.quote}
-                </blockquote>
-                <p className="mt-8 text-center text-[15px] font-bold tracking-[0.03em] text-navy/85">
+              <div className="flex min-h-[75px] items-start justify-between gap-4 bg-[#DCEAFB] px-5 py-3">
+                <p className="whitespace-pre-line text-[13px] font-semibold tracking-[0.03em] text-navy/80 sm:text-[15px] sm:font-black sm:text-navy">
                   {review.author}
                 </p>
+                {"time" in review && review.time ? (
+                  <p className="shrink-0 text-right text-[11px] font-bold tracking-[0.03em] text-navy/80">
+                    {review.time}
+                  </p>
+                ) : null}
+              </div>
+              <div className="relative flex flex-1 flex-col items-center justify-center gap-4 px-8 py-8">
+                <div className="">
+                  <img
+                    src={review.icon}
+                    alt=""
+                    className="max-h-[46px] max-w-[66px] object-contain"
+                  />
+                </div>
+                <blockquote className={"text-center text-[15px] leading-snug font-medium tracking-[0.03em] text-navy sm:leading-normal"}>
+                  “{review.quote}”
+                </blockquote>
+              </div>
+              <div className="bg-[#DCEAFB] pl-5 pt-1 h-[203px]">
+                <p className="text-[9px] text-center font-black tracking-[0.03em] text-navy uppercase">
+                  aspectos destacados
+                </p>
+                <ul className="mt-8 grid grid-cols-2 gap-x-2 gap-y-4">
+                  {review.list.map((item) => (
+                    <li key={item} className="flex items-center gap-1.5 text-[11px] leading-tight font-medium tracking-[0.03em] text-navy sm:text-[12px]">
+                      <img src="/check-review.svg" alt="" className="size-3 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </li>
           )),

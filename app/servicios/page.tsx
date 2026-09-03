@@ -291,11 +291,11 @@ export default function page() {
                   aria-label={transport.label}
                   aria-pressed={i === active}
                   onClick={() => setActive(i)}
-                  className={`size-16 cursor-pointer rounded-xs p-3 transition-colors duration-700 ease-in-out sm:size-24 sm:p-4 md:size-30 md:p-5 ${
+                  className={`flex justify-center items-center size-16 cursor-pointer rounded-xs p-3 transition-colors duration-700 ease-in-out sm:size-24 sm:p-4 md:size-30 md:p-5 ${
                     i === active ? 'bg-[#A7CBF6]' : 'bg-[#B0C3DA]/80'
                   }`}
                 >
-                  <img src={transport.icon} alt="" className="size-full object-contain" />
+                  <img src={transport.icon} alt="" className="size-[70.7px] object-contain" />
                 </button>
               ))}
             </div>
