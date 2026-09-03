@@ -4,37 +4,94 @@ import { useEffect, useRef, useState } from 'react'
 
 const transports = [
   { 
-    id: 'mudanzas',
-    label: 'mudanzas',
-    img: '/servicios/mudanza.png',
-    icon:"/transporte/aereo.png",
-    heading: 'MUDANZAS\nINTERNACIONALES',
-    intro: "Te ayudamos a relocalizar tu hogar o tu oficina entre países, con embalaje, gestión aduanera y entrega coordinada en destino.",
-    plus: { strong: 'Acompañamiento', rest: ' integral y coordinación puerta a puerta.' },
-    minus: { strong: 'Tiempos', rest: ' variables según destino, volumen y requisitos de cada aduana.' },
-  },
-  { 
     id: 'import',
     label: 'importacion',
     img: '/servicios/transporte-maritimo.jpg',
-    // img: '/servicios/upscale-maritimo.jpeg',
-    icon:"/transporte/maritimo.png",
+    icon:"/transporte/impo-icon.png",
     heading: 'IMPORTACIÓN',
-    intro: "Nos encargamos de ingresar mercadería al país con gestión aduanera, clasificación y coordinación logística de origen a destino.",
-    plus: { strong: 'Gestión integral', rest: ', documentación, despacho y seguimiento hasta la liberación de la carga.' },
-    minus: { strong: 'Tiempos', rest: ' sujetos a controles aduaneros, intervenciones y tipo de mercadería.' },
+    tagline: 'Ingresá productos del exterior de forma segura y ordenada.',
+    body: 'Acompañamos a tu empresa durante todo el proceso de importación, desde la planificación de la operación hasta el ingreso de la mercadería al país.',
+    items: [
+      'Análisis y planificación de la operación',
+      'Clasificación arancelaria',
+      'Gestión y control de documentación',
+      'Coordinación con organismos y terceros',
+      'Seguimiento de la operación hasta su liberación',
+    ],
+    goal: 'que tu mercadería ingrese al país de manera eficiente, cumpliendo con todos los requisitos aduaneros.',
   },
   {
     id: 'expo',
     label: 'exportacion',
     img: '/servicios/transporte-terrestre.png',
-    icon:"/transporte/terrestre.png",
+    icon:"/transporte/expo-icon.png",
     heading: 'EXPORTACIÓN',
-    intro: 'Nos encargamos de egresar tu mercadería del país con gestión aduanera, documentación y coordinación logística hasta el destino.',
-    plus: { strong: 'Gestión integral', rest: ', permisos, oficialización y seguimiento de la carga en origen y destino.' },
-    minus: { strong: 'Tiempos', rest: ' sujetos a controles aduaneros, requisitos del país de destino y tipo de mercadería.' },
+    tagline: 'Llevá tus productos al mundo.',
+    body: 'Te acompañamos en la gestión aduanera y documental necesaria para que tus productos puedan salir del país de manera ágil y correctamente documentada.',
+    items: [
+      'Análisis y planificación de la operación',
+      'Clasificación arancelaria',
+      'Gestión documental',
+      'Coordinación con organismos y terceros',
+      'Seguimiento de la operación hasta su embarque',
+    ],
+    goal: 'facilitar la salida de tu mercadería y que puedas operar internacionalmente con mayor previsibilidad.',
+  },
+  { 
+    id: 'mudanzas',
+    label: 'mudanzas',
+    img: '/servicios/mudanza.png',
+    icon:"/transporte/mudanza-icon.png",
+    heading: 'MUDANZAS\nINTERNACIONALES',
+    tagline: 'Tu mudanza también necesita una gestión aduanera.',
+    body: 'Gestionamos el ingreso o salida de efectos personales y bienes del hogar, acompañando el proceso aduanero y coordinando la documentación necesaria para una mudanza internacional.',
+    items: [
+      'Asesoramiento previo a la mudanza',
+      'Análisis de la documentación',
+      'Gestión aduanera',
+      'Coordinación con terceros y organismos intervinientes',
+      'Seguimiento de la operación',
+      'Gestión de ingreso o salida de efectos personales',
+    ],
+    goal: 'simplificar la parte aduanera de tu mudanza para que puedas concentrarte en tu traslado.',
   },
 ] as const
+
+function PosicionArancelaria() {
+  return (
+    <span className="group/tip relative inline" tabIndex={0}>
+      <strong className="cursor-help underline decoration-dotted underline-offset-4">
+        posición arancelaria.
+      </strong>
+      <span
+        role="tooltip"
+        className="pointer-events-none invisible absolute bottom-[calc(100%+10px)] left-1/2 z-50 w-[min(22rem,calc(100vw-2rem))] -translate-x-1/2 rounded-xl border border-gray-300 bg-white px-4 py-3 text-left text-[12px] leading-snug font-medium tracking-[0.03em] text-navy opacity-0 shadow-lg transition duration-200 group-hover/tip:visible group-hover/tip:opacity-100 group-focus-within/tip:visible group-focus-within/tip:opacity-100 sm:text-[13px]"
+      >
+        <span className="block font-bold">¿Para qué sirve?</span>
+        <span className="mt-1.5 block">
+          Permite conocer de antemano los costos, tributos, requisitos y documentos necesarios para importar o exportar:
+        </span>
+        <span className="mt-2 block">
+          <span className="font-semibold">Tributos y costos:</span> Derechos de importación, impuestos y estimación del costo total.
+        </span>
+        <span className="mt-1.5 block">
+          <span className="font-semibold">Normativa:</span> Requisitos, restricciones, licencias y organismos intervinientes.
+        </span>
+        <span className="mt-1.5 block">
+          <span className="font-semibold">Documentación y beneficios:</span> Certificados requeridos y posibles tratamientos preferenciales.
+        </span>
+        <span
+          aria-hidden
+          className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-gray-300"
+        />
+        <span
+          aria-hidden
+          className="absolute top-full left-1/2 -mt-px -translate-x-1/2 border-[7px] border-transparent border-t-white"
+        />
+      </span>
+    </span>
+  )
+}
 
 const services = [
   {
@@ -62,7 +119,7 @@ const services = [
     name: "DOCUMENTACIÓN",
     img: "/servicios/documentacion.png",
     items: [
-      <>Analizamos las características técnicas de la mercadería para determinar su <strong>posición arancelaria.</strong></>,
+      <>Analizamos las características técnicas de la mercadería para determinar su <PosicionArancelaria /></>,
       <>Gestionamos y controlamos la <strong>documentación requerida</strong> en cada operación de comercio exterior.</>,
       <>Oficializamos la mercadería ante Aduana para dar inicio al proceso de despacho.</>,
     ],
@@ -174,13 +231,13 @@ export default function page() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActive((current) => (current + 1) % transports.length)
-    }, 5000)
+    }, 10000)
     return () => window.clearInterval(interval)
   }, [active])
 
   return (
     <div className='tracking-[3%] mb-12 sm:mb-16 md:mb-20'>
-      <section className="relative h-[480px] overflow-hidden sm:h-[560px] md:h-[700px]">
+      <section className="relative h-[560px] overflow-hidden sm:h-[640px] md:h-[760px]">
         {transports.map((transport, i) => (
           <div
             key={transport.id}
@@ -193,33 +250,37 @@ export default function page() {
         <div className="relative z-10 mx-auto h-full w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[78px]">
           <div className="relative h-full">
           {transports.map((transport, i) => (
-            'heading' in transport ? (
               <div
                 key={transport.id}
-                className={`absolute top-24 left-0 max-w-[250px] text-white transition-opacity duration-1000 ease-in-out sm:top-28 sm:max-w-[320px] md:top-[143px] md:max-w-[364px] ${
+                className={`absolute top-24 left-0 max-h-[calc(100%-7rem)] max-w-[280px] overflow-y-auto text-white transition-opacity duration-1000 ease-in-out sm:top-28 sm:max-w-[380px] md:top-[143px] md:max-h-[calc(100%-10rem)] md:max-w-[480px] ${
                   i === active ? 'opacity-100' : 'pointer-events-none opacity-0'
                 }`}
               >
-                <div className="flex items-start gap-1.5 sm:gap-2 relative right-[6px]">
-                  <span className="font-nav mt-0.5 text-lg font-medium tracking-[0.03em] sm:mt-1 sm:text-[22px] md:text-[26px]">
+                <div className="relative right-[6px] flex items-start gap-1.5 sm:gap-2">
+                  <span className="font-nav mt-0.5 ml-1 text-lg font-medium tracking-[0.03em] sm:mt-1 sm:text-[22px] md:text-[26px]">
                     ↓
                   </span>
                   <h1 className="font-display text-[22px] leading-[1.2] font-semibold tracking-[0.03em] uppercase whitespace-pre-line sm:text-[28px] md:text-[34.5px]">
                     {transport.heading}
                   </h1>
                 </div>
-                <p className="mt-6 text-[13px] leading-snug font-semibold tracking-[0.03em] sm:mt-8 sm:text-[15px] sm:leading-normal md:mt-10 md:text-base">
-                  {transport.intro}
+                <p className="mt-5 text-[13px] leading-snug font-semibold tracking-[0.03em] sm:mt-6 sm:text-[15px] sm:leading-normal md:text-base">
+                  {transport.tagline}
                 </p>
-                <p className="mt-4 text-[13px] leading-snug font-medium tracking-[0.03em] sm:text-[15px] sm:leading-normal md:mt-5 md:text-base">
-                  (+) <span className="font-semibold">{transport.plus.strong}</span>
-                  {transport.plus.rest}
-                  <br />
-                  (-) <span className="font-semibold">{transport.minus.strong}</span>
-                  {transport.minus.rest}
+                <p className="mt-3 text-[13px] leading-snug font-medium tracking-[0.03em] sm:text-[15px] sm:leading-normal md:mt-4 md:text-base">
+                  {transport.body}
+                </p>
+                <ul className="mt-3 flex flex-col gap-1 sm:mt-4 sm:gap-1.5">
+                  {transport.items.map((item) => (
+                    <li key={item} className="text-[13px] leading-snug font-medium tracking-[0.03em] sm:text-[15px] md:text-base">
+                      - {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-[13px] leading-snug font-medium tracking-[0.03em] sm:mt-4 sm:text-[15px] sm:leading-normal md:text-base">
+                  <span className="font-semibold">Objetivo:</span> {transport.goal}
                 </p>
               </div>
-            ) : null
           ))}
           <div className="absolute inset-x-0 bottom-8 flex justify-center md:inset-auto md:top-[143px] md:right-0">
             <div className="flex flex-row gap-2 md:flex-col md:gap-4">
