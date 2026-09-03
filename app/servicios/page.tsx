@@ -10,7 +10,7 @@ const transports = [
     icon:"/transporte/impo-icon.png",
     heading: 'IMPORTACIÓN',
     tagline: 'Ingresá productos del exterior de forma segura y ordenada.',
-    body: 'Acompañamos a tu empresa durante todo el proceso de importación, desde la planificación de la operación hasta el ingreso de la mercadería al país.',
+    body: 'Te acompañamos en la gestión aduanera y documental para facilitar la salida de tu mercadería de forma ágil y previsible.',
     items: [
       'Análisis y planificación de la operación',
       'Clasificación arancelaria',
@@ -27,7 +27,7 @@ const transports = [
     icon:"/transporte/expo-icon.png",
     heading: 'EXPORTACIÓN',
     tagline: 'Llevá tus productos al mundo.',
-    body: 'Te acompañamos en la gestión aduanera y documental necesaria para que tus productos puedan salir del país de manera ágil y correctamente documentada.',
+    body: 'Te acompañamos en todo el proceso de importación, desde la planificación hasta la liberación de la mercadería para facilitar su ingreso cumpliendo con los requisitos aduaneros.',
     items: [
       'Análisis y planificación de la operación',
       'Clasificación arancelaria',
@@ -44,7 +44,7 @@ const transports = [
     icon:"/transporte/mudanza-icon.png",
     heading: 'MUDANZAS\nINTERNACIONALES',
     tagline: 'Tu mudanza también necesita una gestión aduanera.',
-    body: 'Gestionamos el ingreso o salida de efectos personales y bienes del hogar, acompañando el proceso aduanero y coordinando la documentación necesaria para una mudanza internacional.',
+    body: 'Simplificamos la parte aduanera de tu mudanza para que puedas concentrarte en tu traslado.',
     items: [
       'Asesoramiento previo a la mudanza',
       'Análisis de la documentación',
@@ -231,7 +231,7 @@ export default function page() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActive((current) => (current + 1) % transports.length)
-    }, 10000)
+    }, 30000)
     return () => window.clearInterval(interval)
   }, [active])
 
@@ -277,9 +277,9 @@ export default function page() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-3 text-[13px] leading-snug font-medium tracking-[0.03em] sm:mt-4 sm:text-[15px] sm:leading-normal md:text-base">
+                {/* <p className="mt-3 text-[13px] leading-snug font-medium tracking-[0.03em] sm:mt-4 sm:text-[15px] sm:leading-normal md:text-base">
                   <span className="font-semibold">Objetivo:</span> {transport.goal}
-                </p>
+                </p> */}
               </div>
           ))}
           <div className="absolute inset-x-0 bottom-8 flex justify-center md:inset-auto md:top-[143px] md:right-0">
