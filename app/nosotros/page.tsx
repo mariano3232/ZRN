@@ -115,12 +115,15 @@ export default function page() {
       <section className="mx-auto max-w-[1440px] px-6 md:px-[78px] mt-30 text-navy/85">
         <h1 className="font-display mt-2 text-xl text-center font-semibold tracking-[0.03em] text-navy/85 uppercase">Nuestra historia</h1>
         <h3 className="font-[20px] py-5 font-bold text-center"></h3>
-        <div className="justify-between flex flex-col md:flex-row">
-          <p className="w-full md:w-[33%] px-10"><b>Una trayectoria que continúa</b>. <br/> Somos una empresa familiar con 35 años <br/> de experiencia en el rubro. Luego de años </p>
-          <div className="w-[2px] rounded bg-gray-200 md:h-[70px]"/>
-          <p className="w-full md:w-[33%] px-10">de desarrollo y de adquirir conocimientos en distintos ámbitos del comercio exterior, decidimos crear ZRN.</p>
-          <div className="w-[2px] rounded bg-gray-200 md:h-[70px]"/>
-          <p className="w-full md:w-[33%] px-10">Hoy nuestro objetivo es consolidarnos como empresa familiar y continuar la trayectoria que comenzó hace 35 años.</p>
+        <p className="px-4 text-center md:hidden">
+          <b>Una trayectoria que continúa</b>. Somos una empresa familiar con 35 años de experiencia en el rubro. Luego de años de desarrollo y de adquirir conocimientos en distintos ámbitos del comercio exterior, decidimos crear ZRN. Hoy nuestro objetivo es consolidarnos como empresa familiar y continuar la trayectoria que comenzó hace 35 años.
+        </p>
+        <div className="hidden justify-between md:flex">
+          <p className="w-[33%] px-10"><b>Una trayectoria que continúa</b>. <br/> Somos una empresa familiar con 35 años <br/> de experiencia en el rubro. Luego de años </p>
+          <div className="h-[70px] w-[2px] rounded bg-gray-200"/>
+          <p className="w-[33%] px-10">de desarrollo y de adquirir conocimientos en distintos ámbitos del comercio exterior, decidimos crear ZRN.</p>
+          <div className="h-[70px] w-[2px] rounded bg-gray-200"/>
+          <p className="w-[33%] px-10">Hoy nuestro objetivo es consolidarnos como empresa familiar y continuar la trayectoria que comenzó hace 35 años.</p>
         </div>
         
       </section>
