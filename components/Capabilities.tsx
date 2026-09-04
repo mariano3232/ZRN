@@ -67,12 +67,12 @@ export function Capabilities() {
         {capabilities.map((item) => (
           <li key={item.number} className="flex min-w-0 w-[300px] sm:w-full flex-col items-center text-center">
             <img className="mb-3 size-12 sm:mb-5 sm:size-[82px]" src={item.img} alt="" />
-            <p className="text-[11px] font-bold leading-tight tracking-[0.03em] text-navy/85 sm:text-sm sm:leading-normal">
+            <p className="text-[12px] font-bold leading-tight tracking-[0.03em] text-navy/85 sm:text-sm sm:leading-normal">
               {item.number}
               <br />
               {item.title}
             </p>
-            <p className="mt-2 max-w-full text-[10px] font-medium leading-snug tracking-[0.03em] text-navy sm:mt-3 sm:max-w-[230px] sm:text-xs sm:leading-normal">
+            <p className="mt-2 max-w-full text-[12px] font-medium leading-snug tracking-[0.03em] text-navy sm:mt-3 sm:max-w-[230px] sm:text-xs sm:leading-normal">
               {item.copy}
             </p>
           </li>
