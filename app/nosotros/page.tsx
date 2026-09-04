@@ -23,7 +23,7 @@ function IntroCopy() {
       }
       observer = new IntersectionObserver(
         ([entry]) => setInView(entry.isIntersecting),
-        { threshold: 0.5, rootMargin: "-25% 0px -25% 0px" },
+        { threshold: 0.5, rootMargin: "-25% 100px -25% 0px" },
       );
       observer.observe(el);
     };

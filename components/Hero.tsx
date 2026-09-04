@@ -15,7 +15,7 @@ export function Hero() {
         <div className="relative h-full">
           <div className="mx-auto pt-45 mx-auto left-0 max-w-[280px] text-white sm:top-28 sm:max-w-[400px] md:absolute md:p-0 md:top-[143px] md:max-w-[560px]">
             <div className="flex items-start gap-1.5 sm:gap-2">
-              <h1 className="font-display text-[22px] leading-[1.2] font-semibold tracking-[0.03em] uppercase sm:text-[28px] md:text-[34.5px]">
+              <h1 className="font-display text-[25px] leading-[1.2] font-semibold tracking-[0.03em] uppercase sm:text-[28px] md:text-[34.5px]">
                 {t.hero.title}
               </h1>
             </div>
