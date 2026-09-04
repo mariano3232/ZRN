@@ -218,11 +218,11 @@ export function Reviews() {
                   “{review.quote}”
                 </blockquote>
               </div>
-              <div className="bg-[#DCEAFB] px-5 pt-1 h-[203px]">
-                <p className="text-[9px] text-center font-bold tracking-[0.03em] text-navy uppercase">
+              <div className="bg-[#DCEAFB] flex flex-col pt-10 px-5 h-[203px]">
+                <p className="text-[12px] pl-[3px] font-bold tracking-[0.03em] text-navy/80 uppercase">
                   aspectos destacados
                 </p>
-                <ul className="mt-8 grid grid-cols-2 gap-x-4 sm:gap-x-2 gap-y-4">
+                <ul className="mt-4 grid grid-cols-2 gap-x-4 sm:gap-x-2 gap-y-4">
                   {review.list.map((item) => (
                     <li key={item} className="flex items-center gap-1.5 text-[11px] leading-tight font-medium tracking-[0.03em] text-navy">
                       <img src="/check-review.svg" alt="" className="size-3 shrink-0" />
