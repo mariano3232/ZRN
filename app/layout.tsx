@@ -48,7 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           rel="noopener noreferrer"
           aria-label="WhatsApp"
         >
-          <img src="/wsp1.png" alt="" className="fixed right-15 bottom-15 h-15 w-15 cursor-pointer hover:scale-105 transition"/>
+          <img src="/wsp1.png" alt="" className="fixed right-5 bottom-5 h-11 w-11 sm:right-15 sm:bottom-15 sm:h-15 sm:w-15 cursor-pointer hover:scale-105 transition"/>
         </a>
         
       </body>

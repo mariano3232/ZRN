@@ -17,7 +17,7 @@ export function Hero() {
             <p className="mt-6 text-[13px] leading-snug tracking-[0.03em] sm:mt-8 sm:text-[16px] sm:leading-normal md:mt-10 md:text-base">
             Gestionamos paso a paso para que tus productos puedan <br/> ingresar o salir del país de forma segura, ágil y cumpliendo <br/> con las normativas adueaneras.
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
+            <div className="mt-32 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
               <Link
                 href="/servicios"
                 className="font-display font-semibold rounded-[3px] inline-flex items-center justify-center bg-[#A7CBF6]/90 px-5 py-3 text-center text-sm text-navy transition-colors duration-500 ease-out hover:bg-[#8eb8ef] sm:text-base"

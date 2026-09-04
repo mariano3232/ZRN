@@ -18,6 +18,20 @@ const reviews = [
     ],
   },
   {
+    quote: "Excelente",
+    time: "+5 años juntos",
+    author: "(Moblar)",
+    icon: "/marcas/MoblarIcon.png",
+    list: [
+      "Cordialidad y atención",
+      "Disponibilidad en consultas",
+      "Comunicación clara",
+      "Acompañamiento",
+      "Resolución de problemas",
+      "Confianza y tranquilidad",
+    ],
+  },
+  {
     quote:
       "Tenemos un historial de éxitos en las operaciones qué llevamos a cabo juntos, siempre con toda la predisposición para sumarse a nuestros proyectos con profesionalismo y calidad humana. Personalmente lo considero un soporte de confianza y gran aliado.",
     time: "+5 años juntos",
@@ -38,7 +52,7 @@ const reviews = [
       "Dinamica y eficiente",
     time: "+2 años juntos",
     author: "PHARMAEXPRESS S.A.",
-    icon: "/marcas/PHARMA.png",
+    icon: "/marcas/pharmaIcon.png",
     list: [
       "Cordialidad y atención",
       "Comunicación clara",
@@ -202,13 +216,13 @@ export function Reviews() {
                   “{review.quote}”
                 </blockquote>
               </div>
-              <div className="bg-[#DCEAFB] pl-5 pt-1 h-[203px]">
+              <div className="bg-[#DCEAFB] px-5 pt-1 h-[203px]">
                 <p className="text-[9px] text-center font-black tracking-[0.03em] text-navy uppercase">
                   aspectos destacados
                 </p>
-                <ul className="mt-8 grid grid-cols-2 gap-x-2 gap-y-4">
+                <ul className="mt-8 grid grid-cols-2 gap-x-4 sm:gap-x-2 gap-y-4">
                   {review.list.map((item) => (
-                    <li key={item} className="flex items-center gap-1.5 text-[11px] leading-tight font-medium tracking-[0.03em] text-navy sm:text-[12px]">
+                    <li key={item} className="flex items-center gap-1.5 text-[11px] leading-tight font-medium tracking-[0.03em] text-navy">
                       <img src="/check-review.svg" alt="" className="size-3 shrink-0" />
                       {item}
                     </li>
