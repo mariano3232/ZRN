@@ -282,9 +282,9 @@ export default function page() {
                   {transport.body}
                 </p>
                 <ul className="mt-3 flex flex-col gap-1 sm:mt-4 sm:gap-1.5">
-                  {transport.items.map((item) => (
+                  {transport.items.map((item,i) => (
                     <li key={item} className="text-[13px] leading-snug font-medium tracking-[0.03em] sm:text-[15px] md:text-base">
-                      - {item}
+                      ({i+1}) {item}
                     </li>
                   ))}
                 </ul>
