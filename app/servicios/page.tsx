@@ -248,23 +248,14 @@ export default function page() {
               i === active ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {'imgMobile' in transport ? (
-              <>
-                <div
-                  className="absolute inset-0 bg-cover bg-center md:hidden"
-                  style={{ backgroundImage: `url('${transport.imgMobile}')` }}
-                />
-                <div
-                  className="absolute inset-0 hidden bg-cover bg-center md:block md:bg-fixed"
-                  style={{ backgroundImage: `url('${transport.img}')` }}
-                />
-              </>
-            ) : (
-              <div
-                className="absolute inset-0 bg-cover bg-center md:bg-fixed"
-                style={{ backgroundImage: `url('${transport.img}')` }}
-              />
-            )}
+            <div
+              className="absolute inset-0 bg-cover bg-center md:hidden"
+              style={{ backgroundImage: `url('${transport.imgMobile}')` }}
+            />
+            <div
+              className="absolute inset-0 hidden bg-cover bg-center md:block md:bg-fixed"
+              style={{ backgroundImage: `url('${transport.img}')` }}
+            />
           </div>
         ))}
         <div className="relative z-10 mx-auto h-full w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[78px]">
