@@ -165,10 +165,10 @@ export function Reviews() {
     <section className="mx-auto max-w-[1440px] overflow-hidden px-6 py-16 md:px-[78px] md:py-20">
       <div className="md:relative right-1 mt-10 mb-20 flex flex-col items-center md:items-start text-right">
         <div className="text-center">
-          <p className="font-nav text-center text-xl font-medium tracking-[0.03em] text-navy">
+          <p className="font-nav text-center sm:text-xl font-medium tracking-[0.03em] text-navy">
             ↓↓↓↓↓
           </p>
-          <h2 className="font-display mt-2 text-2xl font-medium tracking-[0.03em] text-navy/85 uppercase">
+          <h2 className="font-display mt-2 text-xl sm:text-2xl font-medium tracking-[0.03em] text-navy/85 uppercase">
             Testimonios de clientes
           </h2>
         </div>

@@ -44,7 +44,7 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
   return (
     <li
       ref={ref}
-      className={`min-w-0 h-[180px] sm:h-[200px] md:h-[241px] ${service.span ? "sm:col-span-2" : ""}`}
+      className={`min-w-0 h-[180px] sm:h-[200px] md:h-[241px] p-0 m-0 ${service.span ? "sm:col-span-2" : ""}`}
     >
       <Link
         href={`/servicios#${service.id}`}
@@ -72,7 +72,7 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
 
 export function Services() {
   return (
-    <section id="servicios" className="mx-auto max-w-[1440px] px-6 py-12 md:px-[74px] md:py-16">
+    <section id="servicios" className="mx-auto max-w-[1440px] px-4 py-12 md:px-[74px] md:py-16">
       <div className="mb-25 flex flex-col items-center justify-center gap-5">
         {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
         <h2 className="font-display text-center my-4 text-xl font-semibold tracking-[0.03em] text-navy uppercase">

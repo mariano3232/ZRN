@@ -16,8 +16,8 @@ const transports = [
       'Análisis y planificación de la operación',
       'Clasificación arancelaria',
       'Gestión y control de documentación',
-      'Coordinación con organismos y terceros',
-      'Seguimiento de la operación hasta su liberación',
+      'Coordinación con organismos\ny terceros',
+      `Seguimiento de la operación\nhasta su liberación`,
     ],
     goal: 'que tu mercadería ingrese al país de manera eficiente, cumpliendo con todos los requisitos aduaneros.',
   },
@@ -34,8 +34,8 @@ const transports = [
       'Análisis y planificación de la operación',
       'Clasificación arancelaria',
       'Gestión documental',
-      'Coordinación con organismos y terceros',
-      'Seguimiento de la operación hasta su embarque',
+      'Coordinación con organismos\ny terceros',
+      'Seguimiento de la operación\nhasta su embarque',
     ],
     goal: 'facilitar la salida de tu mercadería y que puedas operar internacionalmente con mayor previsibilidad.',
   },
@@ -198,9 +198,9 @@ function ServiceRow({
           }`}
           style={{ backgroundImage: `url('${service.img}')` }}
         />
-        <div className="relative z-10 flex h-full w-full items-end justify-start text-base font-extrabold tracking-[0.03em]">
+        <div className="relative text-[10px] sm:text-[15px] z-10 flex h-full w-full items-end justify-start text-base font-extrabold tracking-[0.03em]">
           <p
-            className={`rounded-tr-1 px-5 py-2 transition-colors duration-500 ease-out group-hover:bg-navy group-hover:text-white ${
+            className={`rounded-tr-1 px-4 py-1 sm:px-5 sm:py-2  transition-colors duration-500 ease-out group-hover:bg-navy group-hover:text-white ${
               inView ? "bg-navy text-white" : "bg-[#A7CBF6] text-navy"
             }`}
           >
@@ -283,7 +283,7 @@ export default function page() {
                 </p>
                 <ul className="mt-3 flex flex-col gap-1 sm:mt-4 sm:gap-1.5">
                   {transport.items.map((item,i) => (
-                    <li key={item} className="text-[13px] leading-snug font-medium tracking-[0.03em] sm:text-[15px] md:text-base">
+                    <li key={item} className="text-[13px] whitespace-pre-line sm:whitespace-normal leading-snug font-medium tracking-[0.03em] sm:text-[15px] md:text-base">
                       ({i+1}) {item}
                     </li>
                   ))}
