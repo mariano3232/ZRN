@@ -7,7 +7,7 @@ export function Capabilities() {
 
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-12 sm:px-6 sm:py-16 md:px-22 md:py-20">
-      <div className="mt-6 mb-12 items-center md:relative md:right-1 flex flex-col md:mt-10 md:mb-20 md:items-end text-right">
+      <div className="mt-6 mb-12 items-center md:relative md:right-10 flex flex-col md:mt-10 md:mb-20 md:items-end text-right">
         <div className="text-center">
           <p className="font-nav text-xl text-center font-medium tracking-[0.03em] text-navy">
             ↓↓↓↓↓
