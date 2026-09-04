@@ -127,10 +127,10 @@ export default function page() {
         {/* <h1 className="font-display mt-2 text-xl text-center font-semibold tracking-[0.03em] text-navy/85 uppercase">Nuestra historia</h1> */}
         <h3 className="font-[20px] py-5 font-bold text-center"></h3>
         <p className="px-4 text-center md:hidden">
-          <b>Nuestra historia</b>. Somos una empresa familiar con 35 años de experiencia en el rubro. A lo largo de este recorrido, desarrollamos conocimientos y experiencia en distintos ámbitos del comercio exterior. Hoy, con la creación de ZRN, buscamos consolidar todo lo aprendido y proyectarlo hacia el futuro, manteniendo el espíritu y los valores de una empresa familiar.
+           Somos una empresa familiar con 35 años de experiencia en el rubro. A lo largo de este recorrido, desarrollamos conocimientos y experiencia en distintos ámbitos del comercio exterior. Hoy, con la creación de ZRN, buscamos consolidar todo lo aprendido y proyectarlo hacia el futuro, manteniendo el espíritu y los valores de una empresa familiar.
         </p>
         <div className="hidden justify-between md:flex">
-          <p className="w-[33%] px-10"><b>Una trayectoria que continúa</b>. <br/> Somos una empresa familiar con 35 años <br/> de experiencia en el rubro.</p>
+          <p className="w-[33%] px-10"><b>Nuestra historia</b>. <br/> Somos una empresa familiar con 35 años <br/> de experiencia en el rubro.</p>
           <div className="h-[70px] w-[2px] rounded bg-gray-200"/>
           <p className="w-[33%] px-10">A lo largo de este recorrido, desarrollamos conocimientos y experiencia en distintos ámbitos del comercio exterior.</p>
           <div className="h-[70px] w-[2px] rounded bg-gray-200"/>

@@ -192,7 +192,7 @@ export function Reviews() {
           reviews.map((review) => (
             <li
               key={`${copy}-${review.author}`}
-              className="flex h-[564px] w-full shrink-0 flex-col overflow-hidden border-[0.5px] border-gray-400 bg-white sm:w-[calc((100%-12px)/2)] lg:w-[calc((100%-24px)/3)]"
+              className="flex h-[564px] w-full shrink-0 flex-col overflow-hidden border-[0.5px] border-gray-300 bg-white sm:w-[calc((100%-12px)/2)] lg:w-[calc((100%-24px)/3)]"
             >
               <div className="flex items-center min-h-[75px] bg-[#DCEAFB] px-5 py-3">
                 <div className="flex w-full justify-between items-end">
