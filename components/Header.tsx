@@ -78,7 +78,7 @@ export function Header() {
       }`}>
         <Link href={"/"} className="shrink-0">
           <img
-            src={isActivePath("/servicios", pathname) ? "/logo_header_2.png" : "/logo_header.png"}
+            src={isActivePath("/servicios", pathname) ? "logos/logo-comex-2.png" : "logos/logo-comex-1.png"}
             alt="zrn logo"
             className={`transition-all duration-300 ${scrolled ? "h-9 w-auto sm:h-10" : "h-12 w-auto sm:h-[68px] sm:w-[57px]"}`}
           />
