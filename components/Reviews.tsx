@@ -6,7 +6,7 @@ const reviews = [
   {
     quote: "Excelente servicio, efectiva solución de problemas.",
     time: "+5 años juntos",
-    author: "(San Agustín SA)",
+    author: "San Agustín SA",
     icon: "/marcas/SanAgustinIcon.png",
     list: [
       "Cordialidad y atención",
@@ -20,7 +20,7 @@ const reviews = [
   {
     quote: "Excelente",
     time: "+5 años juntos",
-    author: "(Moblar)",
+    author: "Moblar",
     icon: "/marcas/MoblarIcon.png",
     list: [
       "Cordialidad y atención",
@@ -79,7 +79,7 @@ const reviews = [
     quote:
       "Servicio eficiente y de confianza",
     time: "+2 años juntos",
-    author: "Matias Ayala - DIMPACK SRL",
+    author: "Matias Ayala\n(DIMPACK SRL)",
     icon: "/marcas/DimpackIcon.png",
     list: [
       "Cordialidad y atención",
