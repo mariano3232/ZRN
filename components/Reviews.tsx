@@ -204,7 +204,7 @@ export function Reviews() {
                   </p>
                 ) : null}
               </div>
-              <div className="relative flex flex-1 flex-col items-center justify-center gap-4 px-8 py-8">
+              <div className="relative flex flex-1 flex-col items-center start gap-4 px-8 py-8 pt-11">
                 <div className="">
                   <img
                     src={review.icon}
