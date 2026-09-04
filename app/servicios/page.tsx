@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { CoverImage } from '@/components/CoverImage'
 import { useLocale } from '@/lib/i18n/locale-context'
 import type { Messages } from '@/lib/i18n/messages'
 
@@ -159,7 +158,7 @@ export default function page() {
 
   return (
     <div className="mb-12 overflow-x-clip tracking-[0.03em] sm:mb-16 md:mb-20">
-      <section className="relative h-[660px] overflow-hidden bg-navy sm:h-[760px] md:h-[760px]">
+      <section className="relative h-[660px] overflow-hidden sm:h-[760px] md:h-[760px]">
         {transports.map((transport, i) => (
           <div
             key={transport.id}
@@ -167,7 +166,14 @@ export default function page() {
               i === active ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <CoverImage src={transport.imgMobile} srcMd={transport.img} fixedOnMd />
+            <div
+              className="absolute inset-0 bg-cover bg-center md:hidden"
+              style={{ backgroundImage: `url('${transport.imgMobile}')` }}
+            />
+            <div
+              className="absolute inset-0 hidden bg-cover bg-center md:block md:bg-fixed"
+              style={{ backgroundImage: `url('${transport.img}')` }}
+            />
           </div>
         ))}
         <div className="relative z-10 mx-auto h-full w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[78px]">

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { CoverImage } from "@/components/CoverImage";
 import { useLocale } from "@/lib/i18n/locale-context";
 
 export function Hero() {
@@ -10,9 +9,8 @@ export function Hero() {
   return (
     <section
       aria-label={t.hero.aria}
-      className="relative h-[660px] bg-navy"
+      className="relative h-[660px] bg-cover bg-center bg-[url('/hero-mobile.png')] md:bg-fixed md:bg-[url('/hero.png')]"
     >
-      <CoverImage src="/hero-mobile.png" srcMd="/hero.png" fixedOnMd />
       <div className="relative z-10 mx-auto h-full w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[78px]">
         <div className="relative h-full">
           <div className="mx-auto pt-45 mx-auto left-0 max-w-[280px] text-white sm:top-28 sm:max-w-[400px] md:absolute md:p-0 md:top-[143px] md:max-w-[560px]">
