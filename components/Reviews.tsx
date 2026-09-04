@@ -195,7 +195,7 @@ export function Reviews() {
               className="flex h-[564px] w-full shrink-0 flex-col overflow-hidden border-[0.5px] border-gray-200 bg-white sm:w-[calc((100%-12px)/2)] lg:w-[calc((100%-24px)/3)]"
             >
               <div className="flex min-h-[75px] items-start justify-between gap-4 bg-[#DCEAFB] px-5 py-3">
-                <p className="whitespace-pre-line text-[13px] font-semibold tracking-[0.03em] text-navy/80 sm:text-[15px] sm:font-black sm:text-navy">
+                <p className="whitespace-pre-line text-[13px] font-semibold tracking-[0.03em] text-navy/80 sm:text-[15px] sm:font-black">
                   {review.author}
                 </p>
                 {"time" in review && review.time ? (
@@ -217,7 +217,7 @@ export function Reviews() {
                 </blockquote>
               </div>
               <div className="bg-[#DCEAFB] px-5 pt-1 h-[203px]">
-                <p className="text-[9px] text-center font-black tracking-[0.03em] text-navy uppercase">
+                <p className="text-[9px] text-center font-bold tracking-[0.03em] text-navy uppercase">
                   aspectos destacados
                 </p>
                 <ul className="mt-8 grid grid-cols-2 gap-x-4 sm:gap-x-2 gap-y-4">

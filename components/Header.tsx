@@ -80,7 +80,7 @@ export function Header() {
           <img
             src={isActivePath("/servicios", pathname) ? "logos/logo-comex-2.png" : "logos/logo-comex-1.png"}
             alt="zrn logo"
-            className={`transition-all duration-300 ${scrolled ? "h-9 w-auto sm:h-10" : "h-9 w-auto sm:h-[68px] sm:w-[57px]"}`}
+            className={`transition-all duration-300 ${scrolled ? "h-9 w-auto sm:h-10" : "h-9 w-auto sm:h-[50px]"}`}
           />
         </Link>
         
