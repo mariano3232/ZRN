@@ -58,7 +58,7 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
         />
         <div className="relative z-10 flex h-full w-full items-end justify-start text-base font-extrabold tracking-[0.03em]">
           <p
-            className={`rounded-tr-1 px-5 py-2 transition-colors duration-500 ease-out group-hover:bg-navy group-hover:text-white ${
+            className={`text-[10px] sm:text-[15px] rounded-tr-1 px-5 py-2 transition-colors duration-500 ease-out group-hover:bg-navy group-hover:text-white ${
               inView ? "bg-navy text-white" : "bg-[#A7CBF6] text-navy"
             }`}
           >

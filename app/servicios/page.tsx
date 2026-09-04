@@ -68,7 +68,7 @@ function PosicionArancelaria() {
       </strong>
       <span
         role="tooltip"
-        className="pointer-events-none invisible absolute bottom-[calc(100%+10px)] left-1/2 z-50 w-[min(22rem,calc(100vw-2rem))] -translate-x-1/2 rounded-xl border border-gray-300 bg-white px-4 py-3 text-left text-[12px] leading-snug font-medium tracking-[0.03em] text-navy opacity-0 shadow-lg transition duration-200 group-hover/tip:visible group-hover/tip:opacity-100 group-focus-within/tip:visible group-focus-within/tip:opacity-100 sm:text-[13px]"
+        className="pointer-events-none invisible absolute bottom-[calc(100%+10px)] left-1/2 z-50 w-[min(22rem,calc(100%-1rem))] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-xl border border-gray-300 bg-white px-4 py-3 text-left text-[12px] leading-snug font-medium tracking-[0.03em] text-navy opacity-0 shadow-lg transition duration-200 group-hover/tip:visible group-hover/tip:opacity-100 group-focus-within/tip:visible group-focus-within/tip:opacity-100 sm:text-[13px]"
       >
         <span className="block font-bold">¿Para qué sirve?</span>
         <span className="mt-1.5 block">
@@ -189,7 +189,7 @@ function ServiceRow({
     <div
       ref={ref}
       id={service.id}
-      className="group flex scroll-mt-28 flex-col border border-gray-400 lg:h-[317px] lg:scroll-mt-40 lg:flex-row lg:justify-between"
+      className="group flex scroll-mt-28 flex-col overflow-x-clip border border-gray-400 lg:h-[317px] lg:scroll-mt-40 lg:flex-row lg:justify-between"
     >
       <div className="relative flex min-h-[120px] flex-col justify-end overflow-hidden lg:w-[50%] bg-[#494444] sm:min-h-[160px] lg:px-0 lg:py-0">
         <div
@@ -239,7 +239,7 @@ export default function page() {
   }, [active])
 
   return (
-    <div className='tracking-[3%] mb-12 sm:mb-16 md:mb-20'>
+    <div className="mb-12 overflow-x-clip tracking-[0.03em] sm:mb-16 md:mb-20">
       <section className="relative h-[660px] overflow-hidden sm:h-[760px] md:h-[760px]">
         {transports.map((transport, i) => (
           <div
@@ -263,7 +263,7 @@ export default function page() {
           {transports.map((transport, i) => (
               <div
                 key={transport.id}
-                className={`absolute top-24 left-0 max-h-[calc(100%-7rem)] max-w-[280px] overflow-y-auto text-white transition-opacity duration-1000 ease-in-out sm:top-28 sm:max-w-[380px] md:top-[143px] md:max-h-[calc(100%-10rem)] md:max-w-[480px] ${
+                className={`absolute top-24 left-0 max-h-[calc(100%-7rem)] max-w-[280px] overflow-x-hidden overflow-y-auto text-white transition-opacity duration-1000 ease-in-out sm:top-28 sm:max-w-[380px] md:top-[143px] md:max-h-[calc(100%-10rem)] md:max-w-[480px] ${
                   i === active ? 'opacity-100' : 'pointer-events-none opacity-0'
                 }`}
               >
@@ -293,8 +293,8 @@ export default function page() {
                 </p> */}
               </div>
           ))}
-          <div className="absolute inset-x-0 bottom-8 flex justify-center md:inset-auto md:top-[143px] md:right-0">
-            <div className="flex flex-row gap-2 md:flex-col md:gap-4">
+          <div className="absolute inset-x-0 bottom-8 flex justify-center overflow-hidden px-4 md:inset-auto md:top-[143px] md:right-0 md:overflow-visible md:px-0">
+            <div className="flex max-w-full flex-row gap-2 md:flex-col md:gap-4">
               {transports.map((transport, i) => (
                 <button
                   key={transport.id}
@@ -302,11 +302,11 @@ export default function page() {
                   aria-label={transport.label}
                   aria-pressed={i === active}
                   onClick={() => setActive(i)}
-                  className={`flex justify-center items-center size-16 cursor-pointer rounded-xs p-3 transition-colors duration-700 ease-in-out sm:size-24 sm:p-4 md:size-30 md:p-5 ${
+                  className={`flex size-16 shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-xs p-3 transition-colors duration-700 ease-in-out sm:size-24 sm:p-4 md:size-30 md:p-5 ${
                     i === active ? 'bg-[#A7CBF6]' : 'bg-[#B0C3DA]/80'
                   }`}
                 >
-                  <img src={transport.icon} alt="" className="size-[70.7px] object-contain" />
+                  <img src={transport.icon} alt="" className="size-full object-contain" />
                 </button>
               ))}
             </div>
