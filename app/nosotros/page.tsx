@@ -67,7 +67,7 @@ function IntroCopy() {
     <>
       <p
         ref={ref}
-        className={`select-none pb-45 text-justify text-[25px] sm:text-[28px] font-bold leading-[1.35] tracking-[-0.03em] transition duration-500 md:hidden ${
+        className={`select-none pb-45 text-justify text-[24px] sm:text-[28px] font-bold leading-[1.35] tracking-[-0.03em] transition duration-500 md:hidden ${
           inView ? "text-navy/50" : ""
         }`}
       >
