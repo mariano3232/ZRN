@@ -22,7 +22,7 @@ const reviews = [
       "Tenemos un historial de éxitos en las operaciones qué llevamos a cabo juntos, siempre con toda la predisposición para sumarse a nuestros proyectos con profesionalismo y calidad humana. Personalmente lo considero un soporte de confianza y gran aliado.",
     time: "+5 años juntos",
     author: "Nicolás Ricordi\n(Biogreen)",
-    size:'text-[5px]',
+    small: true,
     icon: "/marcas/BioGreenIcon.png",
     list: [
       "Cordialidad y atención",
@@ -36,7 +36,7 @@ const reviews = [
   {
     quote:
       "Dinamica y eficiente",
-    time: "Entre 1 y 3 años juntos",
+    time: "+2 años juntos",
     author: "PHARMAEXPRESS S.A.",
     icon: "/marcas/PHARMA.png",
     list: [
@@ -47,10 +47,26 @@ const reviews = [
   },
   {
     quote:
+      "La verdad que son excelentes, siempre super atentos y disponibles en todo momento cuando los necesitas. Como si fueran uno mas del equipo luchando codo a codo.",
+    time: "+2 año juntos",
+    author: "Tomas Bonomo\n(Muffler SRL)",
+    small: true,
+    icon: "/marcas/MuffIcon.png",
+    list: [
+      "Cordialidad y atención",
+      "Disponibilidad en consultas",
+      "Comunicación clara",
+      "Acompañamiento",
+      "Resolución de problemas",
+      "Confianza y tranquilidad",
+    ],
+  },
+  {
+    quote:
       "Servicio eficiente y de confianza",
-    time: "Entre 1 y 3 años juntos",
+    time: "+2 años juntos",
     author: "Matias Ayala - DIMPACK SRL",
-    icon: "/marcas/dimpack.webp",
+    icon: "/marcas/DimpackIcon.png",
     list: [
       "Cordialidad y atención",
       "Disponibilidad en consultas",
@@ -179,10 +195,10 @@ export function Reviews() {
                   <img
                     src={review.icon}
                     alt=""
-                    className="max-h-[46px] max-w-[66px] object-contain"
+                    className="max-h-[66px] max-w-[66px] object-contain"
                   />
                 </div>
-                <blockquote className={"text-center text-[15px] leading-snug font-medium tracking-[0.03em] text-navy sm:leading-normal"}>
+                <blockquote className={`text-center ${review.small?"text-[13px]":"text-[15px]"} leading-snug font-medium tracking-[0.03em] text-navy sm:leading-normal`}>
                   “{review.quote}”
                 </blockquote>
               </div>

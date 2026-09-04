@@ -64,18 +64,29 @@ function IntroCopy() {
   }, []);
 
   return (
-    <p
-      ref={ref}
-      className={`select-none pb-45 text-justify text-[28px] font-bold leading-[1.35] tracking-[-0.03em] indent-[50px] transition duration-500 hover:text-navy/50 md:indent-[300px] md:text-[48px] ${
-        inView ? "text-navy/50" : ""
-      }`}
-    >
-      <span>En ZRN creemos que <b className="text-navy">lo nacional puede</b></span>
-      <span><b className="text-navy"> llegar lejos</b>, hacemos que <b className="text-navy">tu mercadería cruce fronteras.</b></span>
-      <span> Gestionamos y coordinamos lo necesario para llevar</span>
-      <span> adelante <b className="text-navy">tu operación</b> de <b className="text-navy">importación o exportación</b>, </span>
-      <span>acompañándote a vos y a tu negocio de principio a fin.</span>
-    </p>
+    <>
+      <p
+        ref={ref}
+        className={`select-none pb-45 text-left text-[28px] font-bold leading-[1.35] tracking-[-0.03em] transition duration-500 md:hidden ${
+          inView ? "text-navy/50" : ""
+        }`}
+      >
+        En ZRN creemos que <b className="text-navy">lo nacional puede llegar lejos</b>, hacemos que{" "}
+        <b className="text-navy">tu mercadería cruce fronteras.</b> Gestionamos y coordinamos lo
+        necesario para llevar adelante <b className="text-navy">tu operación</b> de{" "}
+        <b className="text-navy">importación o exportación</b>, acompañándote a vos y a tu negocio
+        de principio a fin.
+      </p>
+      <p
+        className="hidden select-none pb-45 text-justify text-[48px] font-bold leading-[1.35] tracking-[-0.03em] indent-[300px] transition duration-500 hover:text-navy/50 md:block"
+      >
+        <span>En ZRN creemos que <b className="text-navy">lo nacional puede</b></span>
+        <span><b className="text-navy"> llegar lejos</b>, hacemos que <b className="text-navy">tu mercadería cruce fronteras.</b></span>
+        <span> Gestionamos y coordinamos lo necesario para llevar</span>
+        <span> adelante <b className="text-navy">tu operación</b> de <b className="text-navy">importación o exportación</b>, </span>
+        <span>acompañándote a vos y a tu negocio de principio a fin.</span>
+      </p>
+    </>
   );
 }
 
