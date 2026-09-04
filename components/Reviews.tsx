@@ -194,15 +194,17 @@ export function Reviews() {
               key={`${copy}-${review.author}`}
               className="flex h-[564px] w-full shrink-0 flex-col overflow-hidden border-[0.5px] border-gray-200 bg-white sm:w-[calc((100%-12px)/2)] lg:w-[calc((100%-24px)/3)]"
             >
-              <div className="flex min-h-[75px] items-start justify-between gap-4 bg-[#DCEAFB] px-5 py-3">
-                <p className="whitespace-pre-line text-[13px] font-semibold tracking-[0.03em] text-navy/80 sm:text-[15px] sm:font-black">
-                  {review.author}
-                </p>
-                {"time" in review && review.time ? (
-                  <p className="shrink-0 text-right text-[11px] font-bold tracking-[0.03em] text-navy/80">
-                    {review.time}
+              <div className="flex items-center min-h-[75px] bg-[#DCEAFB] px-5 py-3">
+                <div className="flex w-full justify-between items-end">
+                  <p className="whitespace-pre-line text-[13px] font-semibold tracking-[0.03em] text-navy/70 sm:text-[15px] sm:font-black">
+                    {review.author}
                   </p>
-                ) : null}
+                  {"time" in review && review.time ? (
+                    <p className="shrink-0 text-right text-[11px] font-bold tracking-[0.03em] text-navy/80">
+                      {review.time}
+                    </p>
+                  ) : null}
+                </div>
               </div>
               <div className="relative flex flex-1 flex-col items-center start gap-4 px-8 py-8 pt-11">
                 <div className="">
