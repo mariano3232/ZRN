@@ -240,7 +240,7 @@ export default function page() {
 
   return (
     <div className='tracking-[3%] mb-12 sm:mb-16 md:mb-20'>
-      <section className="relative h-[560px] overflow-hidden sm:h-[640px] md:h-[760px]">
+      <section className="relative h-[660px] overflow-hidden sm:h-[760px] md:h-[760px]">
         {transports.map((transport, i) => (
           <div
             key={transport.id}
