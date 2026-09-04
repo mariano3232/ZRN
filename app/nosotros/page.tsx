@@ -1,39 +1,11 @@
 "use client";
 
 import { Placeholder } from "@/components/Placeholder";
+import { useLocale } from "@/lib/i18n/locale-context";
 import { useEffect, useRef, useState } from "react";
 
-const team = [
-  {
-    caption: "— Z. Sokac Ignacio,\nCo-founder & Comercial",
-  },
-  {
-    caption: "— Z. Sokac Ivan,\nCo-founder & Despachante de Aduana",
-  },
-  {
-    caption: "— Z. Sokac Santiago,\nCo-founder & operativa",
-  },
-];
-
-const values = [
-  {
-    title: "(1) MISIÓN",
-    copy: "Impulsar proyectos nacionales hacia nuevos mercados mediante estrategia, claridad y acompañamiento.",
-    img: "/nosotros/mision.png",
-  },
-  {
-    title: "(2) VISIÓN",
-    copy: "Ser la conexión entre la producción nacional y el mundo, impulsando su competitividad internacional.",
-    img: "/nosotros/vision.png",
-  },
-  {
-    title: "(3) VALORES",
-    copy: "Claridad para avanzar. Estrategia para proyectar. Comunicación para conectar. Cercanía para acompañar.",
-    img: "/nosotros/valor.png",
-  },
-];
-
 function IntroCopy() {
+  const { t } = useLocale();
   const ref = useRef<HTMLParagraphElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -63,6 +35,8 @@ function IntroCopy() {
     };
   }, []);
 
+  const about = t.about;
+
   return (
     <>
       <p
@@ -71,26 +45,28 @@ function IntroCopy() {
           inView ? "text-navy/50" : ""
         }`}
       >
-        En ZRN creemos que <b className="text-navy">lo nacional puede llegar lejos</b>, hacemos que{" "}
-        <b className="text-navy">tu mercadería cruce fronteras.</b> Gestionamos y coordinamos lo
-        necesario para llevar adelante <b className="text-navy">tu operación</b> de{" "}
-        <b className="text-navy">importación o exportación</b>, acompañándote a vos y a tu negocio
-        de principio a fin.
+        {about.introBefore}<b className="text-navy">{about.introBold1}</b>{about.introMid}
+        <b className="text-navy">{about.introBold2}</b>{about.introAfter2}
+        <b className="text-navy">{about.introBold3}</b>{about.introAfter3}
+        <b className="text-navy">{about.introBold4}</b>
+        {about.introEnd}
       </p>
       <p
         className="hidden select-none pb-45 text-justify text-[48px] font-bold leading-[1.35] tracking-[-0.03em] indent-[300px] transition duration-500 hover:text-navy/50 md:block"
       >
-        <span>En ZRN creemos que <b className="text-navy">lo nacional puede</b></span>
-        <span><b className="text-navy"> llegar lejos</b>, hacemos que <b className="text-navy">tu mercadería cruce fronteras.</b></span>
-        <span> Gestionamos y coordinamos lo necesario para llevar</span>
-        <span> adelante <b className="text-navy">tu operación</b> de <b className="text-navy">importación o exportación</b>, </span>
-        <span>acompañándote a vos y a tu negocio de principio a fin.</span>
+        <span>{about.introDesktop.line1Before}<b className="text-navy">{about.introDesktop.line1Bold}</b></span>
+        <span><b className="text-navy">{about.introDesktop.line2Bold1}</b>{about.introDesktop.line2Mid}<b className="text-navy">{about.introDesktop.line2Bold2}</b></span>
+        <span>{about.introDesktop.line3}</span>
+        <span>{about.introDesktop.line4Before}<b className="text-navy">{about.introDesktop.line4Bold1}</b>{about.introDesktop.line4Mid}<b className="text-navy">{about.introDesktop.line4Bold2}</b>{about.introDesktop.line4After}</span>
+        <span>{about.introDesktop.line5}</span>
       </p>
     </>
   );
 }
 
 export default function page() {
+  const { t } = useLocale();
+
   return (
     <div className="mb-24">
       <section className="mx-auto max-w-[1440px] px-6 pt-52 md:px-[78px] md:pt-56">
@@ -103,12 +79,12 @@ export default function page() {
             ↓↓↓↓↓
           </p>
           <h2 className="font-display mt-2 text-xl font-semibold tracking-[0.03em] text-navy/85 uppercase">
-            Nuestro equipo
+            {t.about.teamTitle}
           </h2>
         </div>
 
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {team.map((member) => (
+          {t.about.team.map((member) => (
             <li
               key={member.caption}
               className="relative h-[530px] overflow-hidden border border-navy bg-white"
@@ -124,23 +100,22 @@ export default function page() {
         </ul>
       </section>
       <section className="mx-auto max-w-[1440px] px-6 md:px-[78px] mt-30 text-navy/85">
-        {/* <h1 className="font-display mt-2 text-xl text-center font-semibold tracking-[0.03em] text-navy/85 uppercase">Nuestra historia</h1> */}
         <h3 className="font-[20px] py-5 font-bold text-center"></h3>
         <p className="px-4 text-center md:hidden">
-           Somos una empresa familiar con 35 años de experiencia en el rubro. A lo largo de este recorrido, desarrollamos conocimientos y experiencia en distintos ámbitos del comercio exterior. Hoy, con la creación de ZRN, buscamos consolidar todo lo aprendido y proyectarlo hacia el futuro, manteniendo el espíritu y los valores de una empresa familiar.
+           {t.about.historyMobile}
         </p>
         <div className="hidden justify-between md:flex">
-          <p className="w-[33%] px-10"><b>Nuestra historia</b>. <br/> Somos una empresa familiar con 35 años <br/> de experiencia en el rubro.</p>
+          <p className="w-[33%] px-10"><b>{t.about.historyTitle}</b>. <br/> {t.about.historyCol1}</p>
           <div className="h-[70px] w-[2px] rounded bg-gray-200"/>
-          <p className="w-[33%] px-10">A lo largo de este recorrido, desarrollamos conocimientos y experiencia en distintos ámbitos del comercio exterior.</p>
+          <p className="w-[33%] px-10">{t.about.historyCol2}</p>
           <div className="h-[70px] w-[2px] rounded bg-gray-200"/>
-          <p className="w-[33%] px-10">Hoy, con la creación de ZRN, buscamos consolidar todo lo aprendido y proyectarlo hacia el futuro.</p>
+          <p className="w-[33%] px-10">{t.about.historyCol3}</p>
         </div>
 
       </section>
       <section className="mx-auto mt-24 max-w-[1440px] px-6 md:mt-28 md:px-[78px]">
         <ul className="grid grid-cols-1 justify-items-center gap-y-16 md:grid-cols-3 md:justify-items-center mt-35 mb-60 md:gap-x-8">
-          {values.map((value) => (
+          {t.about.values.map((value) => (
             <li key={value.title} className="flex w-full max-w-[315px] flex-col items-center text-center">
               <div
                 aria-hidden

@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { DM_Sans, Inter_Tight, Syne } from "next/font/google";
 import { Header } from "../components/Header";
 import "./globals.css";
 import { Contact } from "@/components/Contact";
 import { ViewTransition } from "react";
+import { LocaleProvider } from "@/lib/i18n/locale-context";
+import { messages, parseLocale } from "@/lib/i18n/messages";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -23,33 +27,36 @@ const interTight = Inter_Tight({
   weight: ["500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "ZRN | Comex",
-  description: "Comercio exterior, logística y asesoramiento aduanero.",
-  icons:"/logos/logo-1.png"
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const cookieStore = await cookies();
+  const locale = parseLocale(cookieStore.get("locale")?.value);
+  const meta = messages[locale].meta;
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+  return {
+    title: meta.title,
+    description: meta.description,
+    icons: "/logos/logo-1.png",
+  };
+}
+
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const cookieStore = await cookies();
+  const locale = parseLocale(cookieStore.get("locale")?.value);
+
   return (
     <html
-      lang="es"
+      lang={locale}
       className={`${dmSans.variable} ${syne.variable} ${interTight.variable} h-full antialiased`}
     >
       <body className="relative min-h-full bg-background text-foreground">
-        <Header />
-        <ViewTransition>
-          {children}
-        </ViewTransition>
-        
-        <Contact/>
-        <a
-          href={`https://wa.me/541135658579?text=${encodeURIComponent("Hola, quería más información sobre sus servicios.")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="WhatsApp"
-        >
-          <img src="/wsp1.png" alt="" className="fixed right-5 bottom-5 h-11 w-11 sm:right-15 sm:bottom-15 sm:h-15 sm:w-15 cursor-pointer hover:scale-105 transition"/>
-        </a>
+        <LocaleProvider initialLocale={locale}>
+          <Header />
+          <ViewTransition>
+            {children}
+          </ViewTransition>
+          <Contact />
+          <WhatsAppButton />
+        </LocaleProvider>
       </body>
     </html>
   );

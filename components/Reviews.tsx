@@ -1,97 +1,7 @@
 "use client";
 
 import { useCallback, useLayoutEffect, useRef, useState, type PointerEvent } from "react";
-
-const reviews = [
-  {
-    quote: "Excelente servicio, efectiva solución de problemas.",
-    time: "+5 años juntos",
-    author: "San Agustín SA",
-    icon: "/marcas/SanAgustinIcon.png",
-    list: [
-      "Cordialidad y atención",
-      "Disponibilidad en consultas",
-      "Comunicación clara",
-      "Acompañamiento",
-      "Resolución de problemas",
-      "Confianza y tranquilidad",
-    ],
-  },
-  {
-    quote: "Excelente",
-    time: "+5 años juntos",
-    author: "Moblar",
-    icon: "/marcas/MoblarIcon.png",
-    list: [
-      "Cordialidad y atención",
-      "Disponibilidad en consultas",
-      "Comunicación clara",
-      "Acompañamiento",
-      "Resolución de problemas",
-      "Confianza y tranquilidad",
-    ],
-  },
-  {
-    quote:
-      "Tenemos un historial de éxitos en las operaciones qué llevamos a cabo juntos, siempre con toda la predisposición para sumarse a nuestros proyectos con profesionalismo y calidad humana. Personalmente lo considero un soporte de confianza y gran aliado.",
-    time: "+5 años juntos",
-    author: "Nicolás Ricordi\n(Biogreen)",
-    small: true,
-    icon: "/marcas/BioGreenIcon.png",
-    list: [
-      "Cordialidad y atención",
-      "Disponibilidad en consultas",
-      "Comunicación clara",
-      "Acompañamiento",
-      "Resolución de problemas",
-      "Confianza y tranquilidad",
-    ],
-  },
-  {
-    quote:
-      "Dinamica y eficiente",
-    time: "+2 años juntos",
-    author: "PHARMAEXPRESS S.A.",
-    icon: "/marcas/pharmaIcon.png",
-    list: [
-      "Cordialidad y atención",
-      "Comunicación clara",
-      "Confianza y tranquilidad",
-    ],
-  },
-  {
-    quote:
-      "La verdad que son excelentes, siempre super atentos y disponibles en todo momento cuando los necesitas. Como si fueran uno mas del equipo luchando codo a codo.",
-    time: "+2 año juntos",
-    author: "Tomas Bonomo\n(Muffler SRL)",
-    small: true,
-    icon: "/marcas/MuffIcon.png",
-    list: [
-      "Cordialidad y atención",
-      "Disponibilidad en consultas",
-      "Comunicación clara",
-      "Acompañamiento",
-      "Resolución de problemas",
-      "Confianza y tranquilidad",
-    ],
-  },
-  {
-    quote:
-      "Servicio eficiente y de confianza",
-    time: "+2 años juntos",
-    author: "Matias Ayala\n(DIMPACK SRL)",
-    icon: "/marcas/DimpackIcon.png",
-    list: [
-      "Cordialidad y atención",
-      "Disponibilidad en consultas",
-      "Comunicación clara",
-      "Acompañamiento",
-      "Resolución de problemas",
-      "Confianza y tranquilidad",
-    ],
-  },
-
-]
+import { useLocale } from "@/lib/i18n/locale-context";
 
 const copies = [0, 1, 2] as const;
 
@@ -110,6 +20,7 @@ function wrapLoop(el: HTMLElement, drag?: { startScroll: number }) {
 }
 
 export function Reviews() {
+  const { t } = useLocale();
   const scrollerRef = useRef<HTMLUListElement>(null);
   const drag = useRef({ active: false, startX: 0, startScroll: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -169,7 +80,7 @@ export function Reviews() {
             ↓↓↓↓↓
           </p>
           <h2 className="font-display mt-2 text-xl sm:text-2xl font-medium tracking-[0.03em] text-navy/85 uppercase">
-            Testimonios de clientes
+            {t.reviews.title}
           </h2>
         </div>
       </div>
@@ -189,7 +100,7 @@ export function Reviews() {
         }`}
       >
         {copies.flatMap((copy) =>
-          reviews.map((review) => (
+          t.reviews.items.map((review) => (
             <li
               key={`${copy}-${review.author}`}
               className="flex h-[564px] w-full shrink-0 flex-col overflow-hidden border-[0.5px] border-gray-300 bg-white sm:w-[calc((100%-12px)/2)] lg:w-[calc((100%-24px)/3)]"
@@ -220,7 +131,7 @@ export function Reviews() {
               </div>
               <div className="bg-[#DCEAFB] flex flex-col pt-10 px-5 h-[203px]">
                 <p className="text-[12px] pl-[3px] font-bold tracking-[0.03em] text-navy/80 uppercase">
-                  aspectos destacados
+                  {t.reviews.highlights}
                 </p>
                 <ul className="mt-4 grid grid-cols-2 gap-x-4 sm:gap-x-2 gap-y-4">
                   {review.list.map((item) => (

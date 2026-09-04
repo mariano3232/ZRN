@@ -2,16 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useLocale } from "@/lib/i18n/locale-context";
+import type { Messages } from "@/lib/i18n/messages";
 
-const services = [
-  { title: "ASESORAMIENTO", bg_img:"/servicios/asesoramiento.png",  span: false, id: "asesoramiento" },
-  { title: "COORDINACIÓN", bg_img:"/servicios/coordinacion.png",  span: false, id: "coordinacion" },
-  { title: "DOCUMENTACIÓN", bg_img:"/servicios/documentacion.png",  span: false, id: "documentacion" },
-  { title: "GESTIÓN ANTE TERCEROS", bg_img:"/servicios/gestion.png",  span: false, id: "gestion-ante-terceros" },
-  { title: "APERTURA COMERCIAL", bg_img:"/servicios/apertura.png",  span: true, id: "apertura-comercial" },
-];
+type Service = Messages["servicesHome"]["items"][number];
 
-function ServiceCard({service,}: {service: (typeof services)[number]}) {
+function ServiceCard({service,}: {service: Service}) {
   const ref = useRef<HTMLLIElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -71,21 +67,20 @@ function ServiceCard({service,}: {service: (typeof services)[number]}) {
 }
 
 export function Services() {
+  const { t } = useLocale();
+
   return (
     <section id="servicios" className="mx-auto max-w-[1440px] px-4 py-12 md:px-[74px] md:py-16">
       <div className="mb-25 flex flex-col items-center justify-center gap-5">
-        {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
         <h2 className="font-display text-center my-4 text-xl font-semibold tracking-[0.03em] text-navy uppercase">
-          {/* Nuestros servicios */}
-          ¿Como trabajamos?
+          {t.servicesHome.title}
         </h2>
         <span className="font-nav text-xl font-medium text-navy">↓ ↓</span>
-        {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
       </div>
       
       <ul className="grid grid-cols-1 gap-[5px] md:grid-cols-2">
-        {services.map((service) => (
-          <ServiceCard key={service.title} service={service} />
+        {t.servicesHome.items.map((service) => (
+          <ServiceCard key={service.id} service={service} />
         ))}
       </ul>
     </section>

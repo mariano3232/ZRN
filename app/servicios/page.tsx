@@ -1,87 +1,35 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-
-const transports = [
-  { 
-    id: 'import',
-    label: 'importacion',
-    img: '/servicios/transporte-maritimo.jpg',
-    imgMobile: '/servicios/mar-celu.png',
-    icon:"/transporte/impo-icon.png",
-    heading: 'IMPORTACIÓN',
-    tagline: 'Ingresá productos del exterior de forma segura y ordenada.',
-    body: 'Te acompañamos en la gestión aduanera y documental para facilitar la salida de tu mercadería de forma ágil y previsible.',
-    items: [
-      'Análisis y planificación de la operación',
-      'Clasificación arancelaria',
-      'Gestión y control de documentación',
-      'Coordinación con organismos\ny terceros',
-      `Seguimiento de la operación\nhasta su liberación`,
-    ],
-    goal: 'que tu mercadería ingrese al país de manera eficiente, cumpliendo con todos los requisitos aduaneros.',
-  },
-  {
-    id: 'expo',
-    label: 'exportacion',
-    img: '/servicios/transporte-terrestre.png',
-    imgMobile: '/servicios/camion-celu.png',
-    icon:"/transporte/expo-icon.png",
-    heading: 'EXPORTACIÓN',
-    tagline: 'Llevá tus productos al mundo.',
-    body: 'Te acompañamos en todo el proceso de importación, desde la planificación hasta la liberación de la mercadería para facilitar su ingreso cumpliendo con los requisitos aduaneros.',
-    items: [
-      'Análisis y planificación de la operación',
-      'Clasificación arancelaria',
-      'Gestión documental',
-      'Coordinación con organismos\ny terceros',
-      'Seguimiento de la operación\nhasta su embarque',
-    ],
-    goal: 'facilitar la salida de tu mercadería y que puedas operar internacionalmente con mayor previsibilidad.',
-  },
-  { 
-    id: 'mudanzas',
-    label: 'mudanzas',
-    img: '/servicios/mudanza.png',
-    imgMobile: '/servicios/mudanza-celu.png',
-    icon:"/transporte/mudanza-icon.png",
-    heading: 'MUDANZAS\nINTERNACIONALES',
-    tagline: 'Tu mudanza también necesita una gestión aduanera.',
-    body: 'Simplificamos la parte aduanera de tu mudanza para que puedas concentrarte en tu traslado.',
-    items: [
-      'Asesoramiento previo a la mudanza',
-      'Análisis de la documentación',
-      'Gestión aduanera',
-      'Coordinación con terceros y organismos',
-      'Seguimiento de la operación',
-      'Ingreso o salida de efectos personales',
-    ],
-    goal: 'simplificar la parte aduanera de tu mudanza para que puedas concentrarte en tu traslado.',
-  },
-] as const
+import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { CoverImage } from '@/components/CoverImage'
+import { useLocale } from '@/lib/i18n/locale-context'
+import type { Messages } from '@/lib/i18n/messages'
 
 function PosicionArancelaria() {
+  const { t } = useLocale()
+  const tariff = t.serviciosPage.tariff
+
   return (
     <span className="group/tip relative inline" tabIndex={0}>
       <strong className="cursor-help underline decoration-dotted underline-offset-4">
-        posición arancelaria.
+        {tariff.label}
       </strong>
       <span
         role="tooltip"
         className="pointer-events-none invisible absolute bottom-[calc(100%+10px)] left-1/2 z-50 w-[min(22rem,calc(100%-1rem))] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-xl border border-gray-300 bg-white px-4 py-3 text-left text-[12px] leading-snug font-medium tracking-[0.03em] text-navy opacity-0 shadow-lg transition duration-200 group-hover/tip:visible group-hover/tip:opacity-100 group-focus-within/tip:visible group-focus-within/tip:opacity-100 sm:text-[13px]"
       >
-        <span className="block font-bold">¿Para qué sirve?</span>
+        <span className="block font-bold">{tariff.why}</span>
         <span className="mt-1.5 block">
-          Permite conocer de antemano los costos, tributos, requisitos y documentos necesarios para importar o exportar:
+          {tariff.intro}
         </span>
         <span className="mt-2 block">
-          <span className="font-semibold">Tributos y costos:</span> Derechos de importación, impuestos y estimación del costo total.
+          <span className="font-semibold">{tariff.taxesTitle}</span> {tariff.taxes}
         </span>
         <span className="mt-1.5 block">
-          <span className="font-semibold">Normativa:</span> Requisitos, restricciones, licencias y organismos intervinientes.
+          <span className="font-semibold">{tariff.rulesTitle}</span> {tariff.rules}
         </span>
         <span className="mt-1.5 block">
-          <span className="font-semibold">Documentación y beneficios:</span> Certificados requeridos y posibles tratamientos preferenciales.
+          <span className="font-semibold">{tariff.docsTitle}</span> {tariff.docs}
         </span>
         <span
           aria-hidden
@@ -96,65 +44,34 @@ function PosicionArancelaria() {
   )
 }
 
-const services = [
-  {
-    id: "asesoramiento",
-    name: "ASESORAMIENTO",
-    img: "/servicios/asesoramiento.png",
-    items: [
-      <>Evaluamos la viabilidad de cada propuesta y sus distintas posibilidades de desarrollo.</>,
-      <>Analizamos rutas y costos según las necesidades de tu operación.</>,
-      <>Te acompañamos a vos y a tu negocio en cada paso hacia la apertura internacional.</>,
-    ],
-  },
-  {
-    id: "coordinacion",
-    name: "COORDINACIÓN",
-    img: "/servicios/coordinacion.png",
-    items: [
-      <>Conectamos tu operación con una amplia red de transporte nacional e internacional.</>,
-      "Coordinamos la logística de tu carga de principio a fin.",
-      <>Gestionamos las operaciones en terminales portuarias, correos y depósitos fiscales.</>,
-    ],
-  },
-  {
-    id: "documentacion",
-    name: "DOCUMENTACIÓN",
-    img: "/servicios/documentacion.png",
-    items: [
-      <>Analizamos las características técnicas de la mercadería para determinar su <PosicionArancelaria /></>,
-      <>Gestionamos y controlamos la <strong>documentación requerida</strong> en cada operación de comercio exterior.</>,
-      <>Oficializamos la mercadería ante Aduana para dar inicio al proceso de despacho.</>,
-    ],
-  },
-  {
-    id: "gestion-ante-terceros",
-    name: "GESTIÓN ANTE TERCEROS",
-    img: "/servicios/gestion.png",
-    items: [
-      <>Realizamos presentaciones ante organismos regulatorios como ANMAT, SENASA, RENAPER y ARCA, entre otros.</>,
-      <>Gestionamos los permisos, intervenciones y certificados necesarios para el ingreso o egreso de mercaderías.</>,
-      <>Hacemos seguimiento de cada trámite hasta obtener las autorizaciones correspondientes.</>,
-    ],
-  },
-  {
-    id: "apertura-comercial",
-    name: "APERTURA COMERCIAL",
-    img: "/servicios/apertura.png",
-    items: [
-      <>Le ofrecemos apertura internacional a tu proyecto ante un contexto competitivo.</>,
-      <>Diseñamos estrategias de expansión para conectar tu negocio con nuevos mercados y oportunidades.</>,
-      <>Acompañamos cada etapa del proceso de comercio exterior para facilitar operaciones eficientes y seguras.</>,
-    ],
-  },
-]
+function renderServiceItem(item: Messages["serviciosPage"]["services"][number]["items"][number]): ReactNode {
+  if ("tariff" in item && item.tariff) {
+    return (
+      <>
+        {item.text}
+        <PosicionArancelaria />
+      </>
+    )
+  }
+  if ("strong" in item && item.strong) {
+    return (
+      <>
+        {item.textBefore}
+        <strong>{item.strong}</strong>
+        {item.textAfter}
+      </>
+    )
+  }
+  if ("text" in item) {
+    return item.text
+  }
+  return null
+}
 
 function ServiceRow({
   service,
-  index,
 }: {
-  service: (typeof services)[number]
-  index: number
+  service: Messages["serviciosPage"]["services"][number]
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const [inView, setInView] = useState(false)
@@ -211,7 +128,7 @@ function ServiceRow({
       <div className="flex flex-col justify-between gap-4 px-5 py-6 font-medium text-navy sm:gap-5 sm:px-8 sm:py-8 lg:w-1/2 lg:gap-0 lg:px-10 lg:py-15">
         {service.items.map((item, i) => (
           <p className="w-full text-[13px] sm:text[15px] leading-snug sm:text-[18px] sm:leading-normal" key={i}>
-            (✔) {item}
+            (✔) {renderServiceItem(item)}
           </p>
         ))}
       </div>
@@ -220,6 +137,8 @@ function ServiceRow({
 }
 
 export default function page() {
+  const { t } = useLocale()
+  const transports = t.serviciosPage.transports
   const [active, setActive] = useState(0)
 
   useEffect(() => {
@@ -236,11 +155,11 @@ export default function page() {
       setActive((current) => (current + 1) % transports.length)
     }, 30000)
     return () => window.clearInterval(interval)
-  }, [active])
+  }, [active, transports.length])
 
   return (
     <div className="mb-12 overflow-x-clip tracking-[0.03em] sm:mb-16 md:mb-20">
-      <section className="relative h-[660px] overflow-hidden sm:h-[760px] md:h-[760px]">
+      <section className="relative h-[660px] overflow-hidden bg-navy sm:h-[760px] md:h-[760px]">
         {transports.map((transport, i) => (
           <div
             key={transport.id}
@@ -248,14 +167,7 @@ export default function page() {
               i === active ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center md:hidden"
-              style={{ backgroundImage: `url('${transport.imgMobile}')` }}
-            />
-            <div
-              className="absolute inset-0 hidden bg-cover bg-center md:block md:bg-fixed"
-              style={{ backgroundImage: `url('${transport.img}')` }}
-            />
+            <CoverImage src={transport.imgMobile} srcMd={transport.img} fixedOnMd />
           </div>
         ))}
         <div className="relative z-10 mx-auto h-full w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[78px]">
@@ -288,9 +200,6 @@ export default function page() {
                     </li>
                   ))}
                 </ul>
-                {/* <p className="mt-3 text-[13px] leading-snug font-medium tracking-[0.03em] sm:mt-4 sm:text-[15px] sm:leading-normal md:text-base">
-                  <span className="font-semibold">Objetivo:</span> {transport.goal}
-                </p> */}
               </div>
           ))}
           <div className="absolute inset-x-0 bottom-8 flex justify-center overflow-hidden px-4 md:inset-auto md:top-[143px] md:right-0 md:overflow-visible md:px-0">
@@ -316,18 +225,15 @@ export default function page() {
       </section>
       <div className="mt-16 mb-15 flex justify-center px-4 sm:mt-24 sm:mb-16 md:mt-50 md:mb-30">
         <div className="flex flex-col items-center justify-center gap-5">
-          {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
           <h2 className="font-display text-center my-4 text-xl font-semibold tracking-[0.03em] text-navy uppercase">
-            {/* Nuestros servicios */}
-            ¿Como trabajamos?
+            {t.serviciosPage.howWeWork}
           </h2>
           <span className="font-nav text-xl font-medium text-navy">↓ ↓</span>
-          {/* <span className="font-nav text-xl font-medium text-navy">↓</span> */}
         </div>
       </div>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-5 px-4 sm:px-6 md:px-10 lg:px-20">
-        {services.map((service, i) => (
-          <ServiceRow key={service.id} service={service} index={i} />
+        {t.serviciosPage.services.map((service) => (
+          <ServiceRow key={service.id} service={service} />
         ))}
       </div>
     </div>

@@ -1,55 +1,10 @@
-const capabilities = [
-  {
-    number: "(1)",
-    title: "Diagnóstico de viabilidad",
-    copy: "Analizamos en detalle tú operación y transformamos las complejidades normativa en rutas claras y rentables para tu negocio.",
-    img:"/capacidades/diagnostico.png"
-  },
-  {
-    number: "(2)",
-    title: "Respaldo regulatorio",
-    copy: "Gestionamos los permisos necesarios para que tu marca opere con total tranquilidad dentro y fuera del pais.",
-    img:"/capacidades/respaldo.png"
-  },
-  {
-    number: "(3)",
-    title: "Puesta en marcha",
-    copy: "Resolvemos los tramites burocraticos que sean necesarios para dar inicio a tu operación y le damos seguimiento para que la carga llegue a tiempo.",
-    img:"/capacidades/tramites.png"
-  },
-  {
-    number: "(4)",
-    title: "Cobertura logística",
-    copy: "Conectamos tu carga con el mundo mediante soluciones de transporte fluidas y sin fricciones.",
-    img:"/capacidades/cobertura.png"
-  },
-  {
-    number: "(5)",
-    title: "Presencia en territorio",
-    copy: "Controlamos cada movimiento en puertos, depósitos y aduanas para que no pierdas el ritmo.",
-    img:"/capacidades/presencia.png"
-  },
-  {
-    number: "(6)",
-    title: "Red global",
-    copy: "Una red global de buques, camiones, barcos y servicios aéreos.",
-    img:"/capacidades/red.png"
-  },
-  {
-    number: "(7)",
-    title: "Cotización ágil",
-    copy: "Presupuestos rápidos y claros para que tomes las mejores decisiones estratégicas sin perder tiempo.",
-    img:"/capacidades/cotizacion.png"
-  },
-  {
-    number: "(8)",
-    title: "Expansión comercial",
-    copy: "Impulsamos tu llegada a nuevos mercados para escalar tu marca a nivel internacional.",
-    img:"/capacidades/expansion.png"
-  },
-];
+"use client";
+
+import { useLocale } from "@/lib/i18n/locale-context";
 
 export function Capabilities() {
+  const { t } = useLocale();
+
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-12 sm:px-6 sm:py-16 md:px-22 md:py-20">
       <div className="mt-6 mb-12 items-center md:relative md:right-1 flex flex-col md:mt-10 md:mb-20 md:items-end text-right">
@@ -58,13 +13,13 @@ export function Capabilities() {
             ↓↓↓↓↓
           </p>
           <h2 className="font-display mt-2 text-base font-medium tracking-[0.03em] text-[#0C202B] uppercase sm:text-xl">
-            Capacidades y Soluciones
+            {t.capabilities.title}
           </h2>
         </div>
       </div>
 
       <ul className="flex flex-col items-center gap-x-3 gap-y-10 sm:grid sm:gap-x-8 sm:gap-y-16 lg:grid-cols-4 lg:justify-items-center lg:gap-y-24">
-        {capabilities.map((item) => (
+        {t.capabilities.items.map((item) => (
           <li key={item.number} className="flex min-w-0 w-[300px] sm:w-full flex-col items-center text-center">
             <img className="mb-3 size-12 sm:mb-5 sm:size-[82px]" src={item.img} alt="" />
             <p className="text-[12px] font-bold leading-tight tracking-[0.03em] text-navy/85 sm:text-sm sm:leading-normal">

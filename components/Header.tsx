@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLocale } from "@/lib/i18n/locale-context";
 
 function ChevronDown() {
   return (
@@ -29,12 +31,6 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/servicios", label: "Servicios", hasMenu: false },
-  { href: "/nosotros", label: "Nosotros" },
-];
-
 function isActivePath(href: string, pathname: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -42,9 +38,16 @@ function isActivePath(href: string, pathname: string) {
 
 export function Header() {
   const pathname = usePathname();
+  const { t } = useLocale();
   const [scrolled, setScrolled] = useState(false)
   const [scrolled2, setScrolled2] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const navItems = [
+    { href: "/", label: t.nav.home },
+    { href: "/servicios", label: t.nav.services, hasMenu: false },
+    { href: "/nosotros", label: t.nav.about },
+  ];
 
   const onDarkHero = pathname === "/" || pathname === "/servicios"
   const navyControls = scrolled || pathname === "/nosotros" || menuOpen
@@ -85,14 +88,14 @@ export function Header() {
         </Link>
         
         <nav
-          aria-label="Principal"
+          aria-label={t.nav.mainNav}
           className="hidden items-center gap-8 lg:flex lg:flex-1 lg:gap-24 lg:ml-24"
         >
           {navItems.map((item) => {
             const active = isActivePath(item.href, pathname);
             return (
               <Link
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={`font-nav transition-colors hover:bg-[#A7CBF6]/25 flex items-center gap-1 rounded-[2px] px-3 py-1 text-base font-medium tracking-[0.03em] ${
@@ -109,20 +112,17 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-5">
-          <button
-            type="button"
-            className={`font-nav hidden items-center gap-1 text-sm font-medium tracking-[0.03em] sm:flex sm:text-base ${
+          <LanguageSwitcher
+            className={`hidden sm:block ${
               navyControls || !onDarkHero ? "text-navy" : "text-white"
             }`}
-          >
-            idioma
-            <ChevronDown />
-          </button>
+            menuClassName="right-0"
+          />
 
           <button
             type="button"
             className={`lg:hidden ${navyControls || !onDarkHero ? "text-navy" : "text-white"}`}
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={menuOpen ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={menuOpen}
             aria-controls="menu-movil"
             onClick={() => setMenuOpen((open) => !open)}
@@ -134,7 +134,7 @@ export function Header() {
 
       <nav
         id="menu-movil"
-        aria-label="Principal móvil"
+        aria-label={t.nav.mobileNav}
         className={`grid overflow-hidden transition-[grid-template-rows] duration-300 lg:hidden ${
           menuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
@@ -145,7 +145,7 @@ export function Header() {
               const active = isActivePath(item.href, pathname);
               return (
                 <Link
-                  key={item.label}
+                  key={item.href}
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={`font-nav rounded-[2px] px-3 py-3 text-base font-medium tracking-[0.03em] text-navy ${
@@ -157,13 +157,10 @@ export function Header() {
                 </Link>
               );
             })}
-            <button
-              type="button"
-              className="font-nav mt-1 flex items-center gap-1 px-3 py-3 text-base font-medium tracking-[0.03em] text-navy sm:hidden"
-            >
-              idioma
-              <ChevronDown />
-            </button>
+            <LanguageSwitcher
+              className="mt-1 px-3 py-3 text-navy sm:hidden"
+              variant="inline"
+            />
           </div>
         </div>
       </nav>
