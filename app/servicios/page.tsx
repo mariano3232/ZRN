@@ -7,6 +7,7 @@ const transports = [
     id: 'import',
     label: 'importacion',
     img: '/servicios/transporte-maritimo.jpg',
+    imgMobile: '/servicios/mar-celu.png',
     icon:"/transporte/impo-icon.png",
     heading: 'IMPORTACIÓN',
     tagline: 'Ingresá productos del exterior de forma segura y ordenada.',
@@ -24,6 +25,7 @@ const transports = [
     id: 'expo',
     label: 'exportacion',
     img: '/servicios/transporte-terrestre.png',
+    imgMobile: '/servicios/camion-celu.png',
     icon:"/transporte/expo-icon.png",
     heading: 'EXPORTACIÓN',
     tagline: 'Llevá tus productos al mundo.',
@@ -41,6 +43,7 @@ const transports = [
     id: 'mudanzas',
     label: 'mudanzas',
     img: '/servicios/mudanza.png',
+    imgMobile: '/servicios/mudanza-celu.png',
     icon:"/transporte/mudanza-icon.png",
     heading: 'MUDANZAS\nINTERNACIONALES',
     tagline: 'Tu mudanza también necesita una gestión aduanera.',
@@ -241,11 +244,28 @@ export default function page() {
         {transports.map((transport, i) => (
           <div
             key={transport.id}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out md:bg-fixed ${
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
               i === active ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{ backgroundImage: `url('${transport.img}')` }}
-          />
+          >
+            {'imgMobile' in transport ? (
+              <>
+                <div
+                  className="absolute inset-0 bg-cover bg-center md:hidden"
+                  style={{ backgroundImage: `url('${transport.imgMobile}')` }}
+                />
+                <div
+                  className="absolute inset-0 hidden bg-cover bg-center md:block md:bg-fixed"
+                  style={{ backgroundImage: `url('${transport.img}')` }}
+                />
+              </>
+            ) : (
+              <div
+                className="absolute inset-0 bg-cover bg-center md:bg-fixed"
+                style={{ backgroundImage: `url('${transport.img}')` }}
+              />
+            )}
+          </div>
         ))}
         <div className="relative z-10 mx-auto h-full w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[78px]">
           <div className="relative h-full">
