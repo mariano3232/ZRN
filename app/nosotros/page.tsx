@@ -67,7 +67,7 @@ function IntroCopy() {
     <>
       <p
         ref={ref}
-        className={`select-none pb-45 text-left text-[28px] font-bold leading-[1.35] tracking-[-0.03em] transition duration-500 md:hidden ${
+        className={`select-none pb-45 text-left text-[25px] sm:text-[28px] font-bold leading-[1.35] tracking-[-0.03em] transition duration-500 md:hidden ${
           inView ? "text-navy/50" : ""
         }`}
       >
@@ -127,16 +127,16 @@ export default function page() {
         <h1 className="font-display mt-2 text-xl text-center font-semibold tracking-[0.03em] text-navy/85 uppercase">Nuestra historia</h1>
         <h3 className="font-[20px] py-5 font-bold text-center"></h3>
         <p className="px-4 text-center md:hidden">
-          <b>Una trayectoria que continúa</b>. Somos una empresa familiar con 35 años de experiencia en el rubro. Luego de años de desarrollo y de adquirir conocimientos en distintos ámbitos del comercio exterior, decidimos crear ZRN. Hoy nuestro objetivo es consolidarnos como empresa familiar y continuar la trayectoria que comenzó hace 35 años.
+          <b>Una trayectoria que continúa</b>. Somos una empresa familiar con 35 años de experiencia en el rubro. A lo largo de este recorrido, desarrollamos conocimientos y experiencia en distintos ámbitos del comercio exterior. Hoy, con la creación de ZRN, buscamos consolidar todo lo aprendido y proyectarlo hacia el futuro, manteniendo el espíritu y los valores de una empresa familiar.
         </p>
         <div className="hidden justify-between md:flex">
-          <p className="w-[33%] px-10"><b>Una trayectoria que continúa</b>. <br/> Somos una empresa familiar con 35 años <br/> de experiencia en el rubro. Luego de años </p>
+          <p className="w-[33%] px-10"><b>Una trayectoria que continúa</b>. <br/> Somos una empresa familiar con 35 años <br/> de experiencia en el rubro.</p>
           <div className="h-[70px] w-[2px] rounded bg-gray-200"/>
-          <p className="w-[33%] px-10">de desarrollo y de adquirir conocimientos en distintos ámbitos del comercio exterior, decidimos crear ZRN.</p>
+          <p className="w-[33%] px-10">A lo largo de este recorrido, desarrollamos conocimientos y experiencia en distintos ámbitos del comercio exterior.</p>
           <div className="h-[70px] w-[2px] rounded bg-gray-200"/>
-          <p className="w-[33%] px-10">Hoy nuestro objetivo es consolidarnos como empresa familiar y continuar la trayectoria que comenzó hace 35 años.</p>
+          <p className="w-[33%] px-10">Hoy, con la creación de ZRN, buscamos consolidar todo lo aprendido y proyectarlo hacia el futuro.</p>
         </div>
-        
+
       </section>
       <section className="mx-auto mt-24 max-w-[1440px] px-6 md:mt-28 md:px-[78px]">
         <ul className="grid grid-cols-1 justify-items-center gap-y-16 md:grid-cols-3 md:justify-items-center mt-35 mb-60 md:gap-x-8">

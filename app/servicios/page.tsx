@@ -188,7 +188,7 @@ function ServiceRow({
       id={service.id}
       className="group flex scroll-mt-28 flex-col border border-gray-400 lg:h-[317px] lg:scroll-mt-40 lg:flex-row lg:justify-between"
     >
-      <div className="relative flex min-h-[120px] flex-col justify-center overflow-hidden lg:w-[50%] bg-[#494444] px-4 py-8 sm:min-h-[160px] lg:px-0 lg:py-0">
+      <div className="relative flex min-h-[120px] flex-col justify-end overflow-hidden lg:w-[50%] bg-[#494444] sm:min-h-[160px] lg:px-0 lg:py-0">
         <div
           className={`absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 ${
             inView ? "opacity-100" : "opacity-50"
@@ -207,7 +207,7 @@ function ServiceRow({
       </div>
       <div className="flex flex-col justify-between gap-4 px-5 py-6 font-medium text-navy sm:gap-5 sm:px-8 sm:py-8 lg:w-1/2 lg:gap-0 lg:px-10 lg:py-15">
         {service.items.map((item, i) => (
-          <p className="w-full text-[15px] leading-snug sm:text-[18px] sm:leading-normal" key={i}>
+          <p className="w-full text-[13px] sm:text[15px] leading-snug sm:text-[18px] sm:leading-normal" key={i}>
             (✔) {item}
           </p>
         ))}
