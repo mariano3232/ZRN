@@ -99,10 +99,10 @@ export function Reviews() {
           isDragging ? "cursor-grabbing select-none" : "cursor-grab"
         }`}
       >
-        {copies.flatMap((copy) =>
-          t.reviews.items.map((review) => (
+        {copies.flatMap((copy,i) =>
+          t.reviews.items.map((review,j) => (
             <li
-              key={`${copy}-${review.author}`}
+              key={`${copy}-${review.author}-${i}-${j}`}
               className="flex h-[564px] w-full shrink-0 flex-col overflow-hidden border-[0.5px] border-gray-300 bg-white sm:w-[calc((100%-12px)/2)] lg:w-[calc((100%-24px)/3)]"
             >
               <div className="flex items-center min-h-[75px] bg-[#DCEAFB] px-5 py-3">
@@ -119,11 +119,11 @@ export function Reviews() {
               </div>
               <div className="relative flex flex-1 flex-col items-center start gap-4 px-8 py-8 pt-11">
                 <div className="">
-                  <img
+                  {/* <img
                     src={review.icon}
                     alt=""
                     className="max-h-[66px] max-w-[66px] object-contain"
-                  />
+                  /> */}
                 </div>
                 <blockquote className={`text-center ${review.small?"text-[13px]":"text-[15px]"} leading-snug font-medium tracking-[0.03em] text-navy sm:leading-normal`}>
                   “{review.quote}”

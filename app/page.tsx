@@ -11,7 +11,7 @@ export default function Home() {
       <Capabilities />
       <Services />
       <Reviews />
-      <Brands />
+      {/* <Brands /> */}
     </main>
   );
 }

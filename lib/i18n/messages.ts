@@ -101,7 +101,7 @@ const es = {
       {
         quote: "Excelente servicio, efectiva solución de problemas.",
         time: "+5 años juntos",
-        author: "San Agustín SA",
+        author: "",
         icon: "/marcas/SanAgustinIcon.png",
         list: [
           "Cordialidad y atención",
@@ -115,7 +115,7 @@ const es = {
       {
         quote: "Excelente",
         time: "+5 años juntos",
-        author: "Moblar",
+        author: "",
         icon: "/marcas/MoblarIcon.png",
         list: [
           "Cordialidad y atención",
@@ -130,7 +130,7 @@ const es = {
         quote:
           "Tenemos un historial de éxitos en las operaciones qué llevamos a cabo juntos, siempre con toda la predisposición para sumarse a nuestros proyectos con profesionalismo y calidad humana. Personalmente lo considero un soporte de confianza y gran aliado.",
         time: "+5 años juntos",
-        author: "Nicolás Ricordi\n(Biogreen)",
+        author: "Nicolás Ricordi\n",
         small: true,
         icon: "/marcas/BioGreenIcon.png",
         list: [
@@ -145,7 +145,7 @@ const es = {
       {
         quote: "Dinamica y eficiente",
         time: "+2 años juntos",
-        author: "PHARMAEXPRESS S.A.",
+        author: "",
         icon: "/marcas/pharmaIcon.png",
         list: [
           "Cordialidad y atención",
@@ -157,7 +157,7 @@ const es = {
         quote:
           "La verdad que son excelentes, siempre super atentos y disponibles en todo momento cuando los necesitas. Como si fueran uno mas del equipo luchando codo a codo.",
         time: "+2 año juntos",
-        author: "Tomas Bonomo\n(Muffler SRL)",
+        author: "Tomas Bonomo",
         small: true,
         icon: "/marcas/MuffIcon.png",
         list: [
@@ -172,7 +172,7 @@ const es = {
       {
         quote: "Servicio eficiente y de confianza",
         time: "+2 años juntos",
-        author: "Matias Ayala\n(DIMPACK SRL)",
+        author: "Matias Ayala",
         icon: "/marcas/DimpackIcon.png",
         list: [
           "Cordialidad y atención",
@@ -233,9 +233,9 @@ const es = {
     },
     teamTitle: "Nuestro equipo",
     team: [
-      { caption: "— Z. Sokac Ignacio,\nCo-founder & Comercial" },
-      { caption: "— Z. Sokac Ivan,\nCo-founder & Despachante de Aduana" },
-      { caption: "— Z. Sokac Santiago,\nCo-founder & operativa" },
+      { caption: "— Z. Sokac Ignacio" },
+      { caption: "— Z. Sokac Ivan" },
+      { caption: "— Z. Sokac Santiago" },
     ],
     historyTitle: "Nuestra historia",
     historyMobile:
@@ -499,7 +499,7 @@ const en: typeof es = {
       {
         quote: "Excellent service and effective problem-solving.",
         time: "+5 years together",
-        author: "San Agustín SA",
+        author: "",
         icon: "/marcas/SanAgustinIcon.png",
         list: [...reviewHighlights],
       },
