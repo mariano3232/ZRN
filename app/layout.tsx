@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import { DM_Sans, Inter_Tight, Syne } from "next/font/google";
 import { Header } from "../components/Header";
 import "./globals.css";
 import { Contact } from "@/components/Contact";
 import { ViewTransition } from "react";
 import { LocaleProvider } from "@/lib/i18n/locale-context";
-import { messages, parseLocale } from "@/lib/i18n/messages";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import { JsonLd } from "@/components/JsonLd";
+import { getSiteUrl, buildPageMetadata } from "@/lib/seo";
+import { getLocaleFromCookies } from "@/lib/i18n/server-locale";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -29,20 +30,17 @@ const interTight = Inter_Tight({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies();
-  const locale = parseLocale(cookieStore.get("locale")?.value);
-  const meta = messages[locale].meta;
+  const locale = await getLocaleFromCookies();
 
   return {
-    title: meta.title,
-    description: meta.description,
+    metadataBase: new URL(getSiteUrl()),
     icons: "/logos/logo-1.png",
+    ...buildPageMetadata(locale, "home"),
   };
 }
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const cookieStore = await cookies();
-  const locale = parseLocale(cookieStore.get("locale")?.value);
+  const locale = await getLocaleFromCookies();
 
   return (
     <html
@@ -50,7 +48,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${dmSans.variable} ${syne.variable} ${interTight.variable} h-full antialiased`}
     >
       <body className="relative min-h-full bg-background text-foreground">
-        <Analytics/>
+        <JsonLd locale={locale} />
+        <Analytics />
         <LocaleProvider initialLocale={locale}>
           <Header />
           <ViewTransition>

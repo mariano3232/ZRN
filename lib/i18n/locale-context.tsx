@@ -9,6 +9,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
+import { documentTitleFor } from "@/lib/seo";
 import {
   LOCALE_COOKIE,
   messages,
@@ -24,10 +26,10 @@ type LocaleContextValue = {
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
-function persistLocale(locale: Locale) {
+function persistLocale(locale: Locale, pathname: string) {
   document.cookie = `${LOCALE_COOKIE}=${locale}; path=/; max-age=31536000; SameSite=Lax`;
   document.documentElement.lang = locale;
-  document.title = messages[locale].meta.title;
+  document.title = documentTitleFor(locale, pathname);
 }
 
 export function LocaleProvider({
@@ -37,17 +39,21 @@ export function LocaleProvider({
   initialLocale: Locale;
   children: ReactNode;
 }) {
+  const pathname = usePathname();
   const [locale, setLocaleState] = useState<Locale>(initialLocale);
 
   useEffect(() => {
     document.documentElement.lang = locale;
-    document.title = messages[locale].meta.title;
-  }, [locale]);
+    document.title = documentTitleFor(locale, pathname);
+  }, [locale, pathname]);
 
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    persistLocale(next);
-  }, []);
+  const setLocale = useCallback(
+    (next: Locale) => {
+      setLocaleState(next);
+      persistLocale(next, pathname);
+    },
+    [pathname],
+  );
 
   const value = useMemo<LocaleContextValue>(
     () => ({ locale, setLocale, t: messages[locale] }),

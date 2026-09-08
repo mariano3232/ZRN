@@ -21,8 +21,30 @@ const es = {
     closeMenu: "Cerrar menú",
   },
   meta: {
-    title: "ZRN | Comex",
-    description: "Comercio exterior, logística y asesoramiento aduanero.",
+    siteName: "ZRN Comex",
+    title: "ZRN Comex | Comercio exterior, logística y aduana en Argentina",
+    description:
+      "ZRN Comex gestiona importación, exportación, logística y trámites aduaneros en Argentina. Acompañamos tu operación de comercio exterior de principio a fin.",
+    ogLocale: "es_AR",
+    keywords: [
+      "comercio exterior",
+      "logística",
+      "aduana",
+      "importación",
+      "exportación",
+      "asesoramiento aduanero",
+      "Argentina",
+    ],
+    services: {
+      title: "Servicios de importación y exportación",
+      description:
+        "Asesoramiento, documentación, clasificación arancelaria y coordinación logística para importar, exportar o hacer mudanzas internacionales con ZRN Comex.",
+    },
+    about: {
+      title: "Quiénes somos",
+      description:
+        "Conocé al equipo de ZRN Comex, nuestra misión y cómo ayudamos a empresas a importar y exportar con respaldo regulatorio y cobertura logística.",
+    },
   },
   hero: {
     aria: "Inicio",
@@ -419,8 +441,30 @@ const en: typeof es = {
     closeMenu: "Close menu",
   },
   meta: {
-    title: "ZRN | Comex",
-    description: "Foreign trade, logistics and customs advisory.",
+    siteName: "ZRN Comex",
+    title: "ZRN Comex | Foreign trade, logistics and customs in Argentina",
+    description:
+      "ZRN Comex handles import, export, logistics and customs procedures in Argentina. We support your foreign trade operation from start to finish.",
+    ogLocale: "en_US",
+    keywords: [
+      "foreign trade",
+      "logistics",
+      "customs",
+      "import",
+      "export",
+      "customs advisory",
+      "Argentina",
+    ],
+    services: {
+      title: "Import and export services",
+      description:
+        "Consulting, documentation, tariff classification and logistics coordination for imports, exports and international moves with ZRN Comex.",
+    },
+    about: {
+      title: "About us",
+      description:
+        "Meet the ZRN Comex team, our mission, and how we help companies import and export with regulatory support and logistics coverage.",
+    },
   },
   hero: {
     aria: "Home",
