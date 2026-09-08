@@ -90,7 +90,7 @@ export default function page() {
               className="relative h-[530px] overflow-hidden border border-navy bg-white"
             >
               <Placeholder className="absolute inset-0" />
-              <div className="absolute inset-x-0 bottom-0 z-10 flex h-[154px] items-center justify-center bg-[#F9F5AE] px-8">
+              <div className="absolute inset-x-0 bottom-0 z-10 flex h-[154px] items-center justify-center bg-[#B0C3DA]/40 px-8">
                 <p className="whitespace-pre-line text-center text-xl font-bold tracking-[0.03em] text-navy/85">
                   {member.caption}
                 </p>
