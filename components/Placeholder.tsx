@@ -3,5 +3,5 @@ type PlaceholderProps = {
 };
 
 export function Placeholder({ className = "" }: PlaceholderProps) {
-  return <div aria-hidden className={`bg-placeholder ${className}`} />;
+  return <div aria-hidden className={`bg-white ${className}`} />;
 }

@@ -31,7 +31,7 @@ export function Hero() {
               </Link>
               <Link
                 href="#contacto"
-                className="font-display font-semibold rounded-[3px] inline-flex items-center justify-center bg-navy/90 px-5 py-3 text-center text-sm text-white transition-colors duration-500 ease-out hover:bg-[#163656] sm:text-base"
+                className="font-display font-semibold rounded-[3px] inline-flex items-center justify-center bg-[#F9F5AE]/90 px-5 py-3 text-center text-sm text-navy transition-colors duration-500 ease-out hover:bg-[#F9F5AE] sm:text-base"
               >
                 {t.hero.ctaAdvice}
               </Link>

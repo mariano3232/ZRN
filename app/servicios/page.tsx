@@ -218,7 +218,7 @@ export default function page() {
                   aria-pressed={i === active}
                   onClick={() => setActive(i)}
                   className={`flex size-16 shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-xs p-3 transition-colors duration-700 ease-in-out sm:size-24 sm:p-4 md:size-30 md:p-5 ${
-                    i === active ? 'bg-[#A7CBF6]' : 'bg-[#B0C3DA]/80'
+                    i === active ? 'bg-[#F9F5AE]' : 'bg-[#B0C3DA]/80'
                   }`}
                 >
                   <img src={transport.icon} alt="" className="size-full object-contain" />
