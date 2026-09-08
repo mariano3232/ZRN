@@ -18,7 +18,7 @@ export function Capabilities() {
         </div>
       </div>
 
-      <ul className="flex flex-col items-center gap-x-3 gap-y-10 sm:grid sm:gap-x-8 sm:gap-y-16 lg:grid-cols-4 lg:justify-items-center lg:gap-y-24">
+      <ul className="flex flex-col gap-x-3 gap-y-10 sm:grid sm:gap-x-8 sm:gap-y-16 lg:grid-cols-4 lg:justify-items-center lg:gap-y-24">
         {t.capabilities.items.map((item) => (
           <li key={item.number} className="flex min-w-0 w-[300px] sm:w-full flex-col items-center text-center">
             <img className="mb-3 size-12 sm:mb-5 sm:size-[82px]" src={item.img} alt="" />
