@@ -98,7 +98,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`font-nav transition-colors hover:bg-[#F9F5AE]/25 flex items-center gap-1 rounded-[2px] px-3 py-1 text-base font-medium tracking-[0.03em] ${
+                className={`font-nav transition-colors hover:bg-[#A7CBF6]/25 flex items-center gap-1 rounded-[2px] px-3 py-1 text-base font-medium tracking-[0.03em] ${
                   pathname === "/servicios" && !navyControls ? "text-white" : "text-navy"
                 } ${
                   active && scrolled2 ? "bg-gray-100 hover:bg-gray-100" : ""
