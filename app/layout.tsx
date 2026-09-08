@@ -8,6 +8,7 @@ import { ViewTransition } from "react";
 import { LocaleProvider } from "@/lib/i18n/locale-context";
 import { messages, parseLocale } from "@/lib/i18n/messages";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Analytics } from "@vercel/analytics/next"
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -49,6 +50,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${dmSans.variable} ${syne.variable} ${interTight.variable} h-full antialiased`}
     >
       <body className="relative min-h-full bg-background text-foreground">
+        <Analytics/>
         <LocaleProvider initialLocale={locale}>
           <Header />
           <ViewTransition>
