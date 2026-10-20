@@ -59,7 +59,7 @@ const es = {
       {
         number: "(1)",
         title: "Diagnóstico de viabilidad",
-        copy: "Analizamos en detalle tú operación y transformamos las complejidades normativa en rutas claras y rentables para tu negocio.",
+        copy: "Analizamos en detalle tú operación y transformamos las complejidades normativas en rutas claras y rentables.",
         img: "/capacidades/diagnostico.png",
       },
       {
@@ -71,7 +71,7 @@ const es = {
       {
         number: "(3)",
         title: "Puesta en marcha",
-        copy: "Resolvemos los tramites burocraticos que sean necesarios para dar inicio a tu operación y le damos seguimiento para que la carga llegue a tiempo.",
+        copy: "Resolvemos los tramites burocraticos que sean necesarios y le damos seguimiento para que la carga llegue a tiempo.",
         img: "/capacidades/tramites.png",
       },
       {
